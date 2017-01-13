@@ -3,15 +3,49 @@ Plan for lp1 scanning system.
 What to do?
 
 Lab
-	Assemble and set up furniture etc.
+	Assemble and set up equipment
 
 Scanning system
 	
-	Determine complete functionalities
+	Determine complete set up
+		z-placement and movement
+		What positioning table?
+			Position sensitivity
+			Range
+			Weight stability and robustness
+			Geometry (integrated hole, somehow)
 
 	Position sensitive table
-		Purchase/obtain
+		Assemble
 		Program
+
+	Compex-crystal
+		Set up, connect
+		Verify Canberra measurements
+			Energy resolution
+			Trapping
+		Acquaintance - How to treat and work with it?
+
+	Lycca-crystals
+		Set up, connect
+		Characterise
+			Efficiency
+			Timing
+	
+	Student lab crystals
+		Characterise
+			Geant4 vs. Meas. and Physics model
+		
+	Complete scanning system
+		DAQ - prepare scanning method
+			Coincidence
+			Gate?
+		Data analysis
+			Position vs. response
+			Pulse shapes
+		Geant4 simulation
+			Prediction
+			Comparison
 	
 
 	
