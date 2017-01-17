@@ -1,0 +1,35 @@
+Links
+
+https://www.thorlabs.com/navigation.cfm?guide_id=2081
+http://www.xyz-stage.com/datasheets/XY_Precision_Positioners.pdf
+https://www.physikinstrumente.com/en/products/xy-stages/stages-with-motor-screw-drives/
+
+What positioning table?
+Position sensitivity: 
+	Min Achievable Incremental Movement: ?
+
+Range - x,y = 120 mm
+Weight stability and robustness: collimator + lock ~ 25 kg
+	Vertical load capacity: 
+	Horizontal load capacity: 
+Geometry
+	Hole
+	Collimator as close as possible to the crystal
+Actuator - stepper motor controller
+
+Linear unit on top of linear unit seems nice. ~ 20000 kr, but hole?
+
+
+Dewar upside down - double trouble (leak!)
+
+What about moving the dewar+crystal? Roughly around the same weight, but big!
+
+Exists larger ones with a big hole. But can we scan the whole thing? 
+
+THE ONE
+4 surrounding linear units with two motors, interesting!
+	Two linear units on bottom to position x with one motor controlling both
+	Two linear units on top to position y with one motor controlling both
+
+Specify number of scanning points -> precision, step length ...
+

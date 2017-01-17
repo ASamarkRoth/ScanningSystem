@@ -37,7 +37,7 @@ Köln:
 Random:
 FWTM/FWHM <= 1.8 (AGATA) is a measure of the asymmetry of peaks. 
 
-45 pF capacity for the AGATA crystals. 
+45 pF capacitance for the AGATA crystals. 
 
 Cryostat optimisation should not affect the resolution a lot.
 
