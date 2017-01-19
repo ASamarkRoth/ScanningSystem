@@ -42,7 +42,7 @@ Other than that it doesn't need to be very precise since there are too many unce
 	Crystal + crystat
 	Collimator on plate
 	Size of beam is unclear!? (5 cm from the collimator exit -> beam diameter = 2 mm)
-	Tilting angle of the table/positioning system, it gives another uncertainty! How can you measure the angle? Water drop thingy?
+	Tilting angle of the table/positioning system, it gives another uncertainty! How can you measure the angle? Water drop thingy? Yes, a "level"!
 	
 Example: Start 0.5 cm from side and move with 1 cm to other side 5x5 points in x-y plane.
 
@@ -73,4 +73,56 @@ Califa+Alex:
 	Motors are magnetically controlled.
 	Proposition: pneumatic driven system
 	Newmark was the company.
+
+Linus: 
+	It is possible to remotely boot and shut-off the motors. Hence when daq is ON motors should be OFF.
+Dirk:
+	What about r,phi movement? Rotation! Arm is needed!
+
+
+Meeting SKS Sweden:
+	Suggested products
+		Linear unit - Maximum path = Max Standard Length?, dynamic load capacity? Just pick the right one.
+		Rail bearing - Load capacity? No problem!
+
+	Hole or arm/arms? Definitely arm. The linear unit sustains a large torque/momentum.
+	Entire system:
+		Supporting structure, advice?
+	
+
+	R, phi system? Not necessary
+
+	Cost?
+		~ 10000 kr per linear unit
+	Time to get it? Should be in stock.
+
+	Extras:
+	For supporting structure - adjustable feet! for keeping it horizontal
+	A stepping motor should be preferable. It is provided with a steps per revolution. Need to know the length per revolution which is determined by the linear unit. Johan said should have more than 200 steps/revolution, should not matter for price.
+	Need to find a stepping motor which fits into the housing of the linear unit. Ask Linus.
+
+	Affects stroke length:
+		The dimensions of the collimator and the arm/head that holds it is important for the stroke length of the linear unit. 
+		Also the dimensions of what we fix the linear units on might decrease the stroke length.
+	Match the height of the LM guide with the linear unit.
+
+
+
+Another meeting:
+	Motor
+		Software
+		Noise
+		Remotely boot and shut off?
+
+Parts:
+	2 equal linear units (depends a little on where we can fix them)
+	1 LM guide
+	Collimator arm
+	Support structure:
+		4 beams with connecting beams....
+	1 level tool (need to be able to measure angles in x & y!)
+	2 step motors:
+		Cables
+		Software
+
 

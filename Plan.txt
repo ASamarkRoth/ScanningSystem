@@ -46,6 +46,20 @@ Scanning system
 		Geant4 simulation
 			Prediction
 			Comparison
-	
+		
 
-	
+To do:
+	Drawings are nbr 1 priority: need to see the complete system!
+	3D drawing of the scanning system
+		Get drawings from producers
+	Contact another firm (than SveMek) for Lycca holder
+	Decide the linear units and the LM guide
+		Determine the collimator arm
+		Hear from PI?
+		How do we fix the linear units?
+
+
+
+
+
+

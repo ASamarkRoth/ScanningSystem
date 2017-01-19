@@ -2,3 +2,11 @@ Links
 
 Inermet and densimet properties
 https://www.plansee.com/en/materials/tungsten-heavy-metal.html
+
+Supporting structure for:
+	Horizontal absorbers + Lycca holder system
+	Positioning system
+
+What size is/are the dewars? Will they change???
+Can the electrical cooling sustain the weight of the crystal and be placed on the ground?
+
