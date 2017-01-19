@@ -30,6 +30,47 @@ THE ONE
 4 surrounding linear units with two motors, interesting!
 	Two linear units on bottom to position x with one motor controlling both
 	Two linear units on top to position y with one motor controlling both
+	Bearings with sliding cylinders is an option to separate much of the load from the shaft/linear unit and avoid additional motors such as 2 extra linear units
+	What is the effect on the precision if the two are connected?
+	Need to account for the dimensions of the absorbers, lycca crystals etc. for the supporting structure
+	Integrate lycca crystals within the hole of the positioning table?
+
 
 Specify number of scanning points -> precision, step length ...
+So we want to study the properties of the crystal, especially those in the corners. It would be preferably to have multiple points here -> stepsize towards 2 mm.
+Other than that it doesn't need to be very precise since there are too many uncertainties:
+	Crystal + crystat
+	Collimator on plate
+	Size of beam is unclear!? (5 cm from the collimator exit -> beam diameter = 2 mm)
+	Tilting angle of the table/positioning system, it gives another uncertainty! How can you measure the angle? Water drop thingy?
+	
+Example: Start 0.5 cm from side and move with 1 cm to other side 5x5 points in x-y plane.
+
+Phone call:
+	Push ~30 kg
+	XY-table, with hole!!!!
+	Fix plates/frame
+	Explain what we want to do
+
+http://www.skssweden.se/se/_linjarprodukter
+Johan Bergqvist - return with drawing 18/1
+Has experiences from MAXIV/Academic
+
+Guillem, contact PhysikInstrumente (this company seems experienced, big, short notice!!):
+What was written to PI:
+We want to scan a germanium crystal of surface 120mm*120mm with a
+colliding beam coming from above the surface of the crystal. We thus are
+looking for a setup that could scan the whole surface of that crystal with
+a precision of roughly 0.1mm, carrying a maximum weight of 30kg while the
+beam is focused and surrounded by lead and tungsten. The whole setup should
+be motorized so that we can program the position where we want the beam to
+collide with the crystal to study it and will be placed above the crystal
+and its cryostat, around 1m from the ground.
+Call: Does not exist a finished product, tailor made? Perhaps weight a limitation. 
+
+Califa+Alex:
+	PROBLEMS WITH NOISE ORIGINATING FROM THE MOTORS. 
+	Motors are magnetically controlled.
+	Proposition: pneumatic driven system
+	Newmark was the company.
 
