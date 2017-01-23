@@ -57,6 +57,7 @@ To do:
 		Determine the collimator arm
 		Hear from PI?
 		How do we fix the linear units?
+	Contact Habo about table legs solution.
 
 
 
