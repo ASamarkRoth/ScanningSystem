@@ -125,12 +125,16 @@ Parts:
 		Cables
 		Software
 
+RS-online: 
+Customer nbr: 75579573
+Ole, teknik@rsonline.dk
+	Remote shut down -> vibrations/error : fix with short circuit of wires and a resistant magnetic field!?
 
 Contact concerning stepper motor + controller:
-We are building an xy-positioning system. It consists of two linear units, THK LM Guide Actuators:
+We are building an xy-positioning system, see attachment for sketch. It consists of two linear units, THK LM Guide Actuators:
 	Marked A: Model KR2602, type A with a stroke length of 170 mm and overall length 320 mm.
 	Marked B: Model KR30H, type A with a stroke length of 310 mm and overall length 470 mm. 
 	Marked C: And one THK caged ball LM guide, Model SSR 15 XW with a length corresponding to the first linear unit.
 We want to purchase stepper motors with controller to automatise an xy-scan. An adapter for the motor housing we can construct ourselves. 
 An extending arm (coloured cyan) from one of the linear units will hold 30 kg (coloured red) which will need to be pushed.
-It is important that the motors can be switched off (completely shut down) remotely because we intend to perform measurements with gamma radiation detectors when a position is reached. 
+It is important that the motors can be switched off (completely shut down) remotely because we intend to perform measurements with gamma radiation detectors when a position is reached. Speed is not important and relative uncertainties around 0.1 mm is good enough.
