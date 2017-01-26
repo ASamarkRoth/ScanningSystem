@@ -7,6 +7,7 @@ Scanner. There are three 10-mm thick disks, 60 cm (!) in diameter:
 - a base made of aluminum, with threads for 4mm-pins keeping the
 horizontal absorbers and distance pieces in place. 
 	Why do we keep the distance pieces in place?
+		Since it should be portable. Enabled with screws.
 
 - the bottom piece, hard plastic or - visualisation!? - plexiglas.
 This keeps the 12 LYCCA modules in place around the inner octagon.
