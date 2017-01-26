@@ -72,8 +72,13 @@ To do:
 		https://www.physikinstrumente.com/en/products/controllers-and-drivers/motion-controllers-for-motor-screw-drives/c-863-mercury-servo-controller-900606/
 	Determine height adjustable table
 		Is it necessary that the 2nd table is height adjustable?
+
 	Height adjustable platform for dewar
 		http://www.e-holmarc.com/product/labjack-ljss300-350/#prettyPhoto?&currency=USD
+
+
+	
+
 
 
 
