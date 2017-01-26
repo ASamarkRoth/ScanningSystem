@@ -58,22 +58,22 @@ Finished:
 		The distance going down is limited by the height of the linear units + wagon stuff
 	Contact another firm (than SveMek) for Lycca holder
 		SveMek seems nice here!
-
-To do:
 	Drawings are nice: need to see the complete system!
 	3D drawing of the scanning system
+	Second table : plate on top is fine, drawing is done.
+	Watch "how to" videos from Canberra
+
+To do:
 		Get drawings from producers after an offer/contract
 	What step motors should we purchase?
 		http://www.haydonkerk.com/LinearActuatorProducts/IDEAStepperMotorController/Size17IDEADriveLinearActuator/tabid/372/Default.aspx
 		http://www.haydonkerk.com/LinearActuatorProducts/StepperMotorLinearActuators/LinearActuatorsHybrid/Size17DSLinearActuator/tabid/81/Default.aspx
 		http://se.rs-online.com/web/c/automation-control-gear/electric-motors-motor-controllers-peripherals/stepper-motors/?cm_mmc=SE-PPC-_-google-_-1_SE_SE_G_Motors_Exact-_-Motors%7CStepper&mkwid=sbXD9bGhj_dc|pcrid|80386606092|pkw|stegmotor|pmt|e|prd|&gclid=CjwKEAiA8JbEBRCz2szzhqrx7H8SJAC6FjXXFWNcmNUMmgZ0jgbdtLRbVYzco9kH7SvBR6Dh9YFWLRoCW_3w_wcB#
 		https://www.physikinstrumente.com/en/products/controllers-and-drivers/motion-controllers-for-motor-screw-drives/c-863-mercury-servo-controller-900606/
-	Watch "how to" videos from Canberra
 	Determine height adjustable table
 		Is it necessary that the 2nd table is height adjustable?
-		How 2nd table?
-			Just add another thin (!) plate on top of the HA on the rods with a larger dimension. The rods need to be cut.
-			Make a drawing!
+	Height adjustable platform for dewar
+		http://www.e-holmarc.com/product/labjack-ljss300-350/#prettyPhoto?&currency=USD
 
 
 
