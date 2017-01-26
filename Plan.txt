@@ -74,6 +74,8 @@ To do:
 		How 2nd table?
 			Just add another thin (!) plate on top of the HA on the rods with a larger dimension. The rods need to be cut.
 			Make a drawing!
+			Guillem draws it in 3D.
+	
 
 
 
