@@ -138,3 +138,9 @@ We are building an xy-positioning system, see attachment for sketch. It consists
 We want to purchase stepper motors with controller to automatise an xy-scan. An adapter for the motor housing we can construct ourselves. 
 An extending arm (coloured cyan) from one of the linear units will hold 30 kg (coloured red) which will need to be pushed.
 It is important that the motors can be switched off (completely shut down) remotely because we intend to perform measurements with gamma radiation detectors when a position is reached. Speed is not important and relative uncertainties around 0.1 mm is good enough.
+
+
+
+Collimator arm:
+	http://www.engineersedge.com/calculators/flat-plate-deflection.htm 
+	-> center deflection of 0.3 mm for a 100*100 mm² plate, thickness 10 mm, E = 1000 N/mm², Poisson ratio: nu = 0.334, uniform pressure over r=50 mm circle 0.03 N/mm²
