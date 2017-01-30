@@ -144,3 +144,8 @@ It is important that the motors can be switched off (completely shut down) remot
 Collimator arm:
 	http://www.engineersedge.com/calculators/flat-plate-deflection.htm 
 	-> center deflection of 0.3 mm for a 100*100 mm² plate, thickness 10 mm, E = 1000 N/mm², Poisson ratio: nu = 0.334, uniform pressure over r=50 mm circle 0.03 N/mm²
+
+For price approximation to Johan @ SKS
+Linear unit: Model KR2602, type A with a stroke length of 169 mm and overall length 320 mm.
+Linear unit: KR30H, type A with a stroke length of 308.8 mm and overall length 470 mm.
+THK caged ball LM guide, Model SSR 15 XW 1 SS +280L Y 
