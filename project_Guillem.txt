@@ -1,0 +1,32 @@
+In this document we structure Guillem's project work. 
+
+Overall: Development of the Lund germanium detector scanning system and characterisation of a square type HPGe crystal
+
+Objectives:
+
+1. Develop an xy-positioning system
+	Structure
+	Components
+
+2. Create a 3D-model of the finished/complete scanning system
+	Simulate load
+
+3. Characterisation of the Compex prototype crystal with a simple scanning system
+	Verification of Canberra measurements
+		Resolution for Co-60, Co-57(, Fe-55) and Cs-137
+		Peak symmetry, FWTM/FWHM
+		Peak to Compton ratio
+		Efficiency
+	Examine properties of the conventional HPGe crystal scanning system
+		Determine scintillator efficiencies
+		What is the expected count rate for the finished system? Examine:
+			With collimator
+			Just detectors
+	Characterise the crystal with a simple scanning
+		Determine the above properties for:
+			x,y = 4*corner + middle
+			z = optional
+		Analyse
+	Extra: Measure crystal capacitance vs. voltage
+		Determine dopant concentration!?
+
