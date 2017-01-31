@@ -139,24 +139,41 @@ We want to purchase stepper motors with controller to automatise an xy-scan. An 
 An extending arm (coloured cyan) from one of the linear units will hold 30 kg (coloured red) which will need to be pushed.
 It is important that the motors can be switched off (completely shut down) remotely because we intend to perform measurements with gamma radiation detectors when a position is reached. Speed is not important and relative uncertainties around 0.1 mm is good enough.
 
-
-
 Collimator arm:
 	http://www.engineersedge.com/calculators/flat-plate-deflection.htm 
-	-> center deflection of 0.045 mm for a 100*100 mm² plate, thickness 10 mm, E = 6900 N/mm², Poisson ratio: nu = 0.334, uniform pressure over r=50 mm circle 0.03 N/mm²
-	-> center deflection of 0.015 mm for a 100*100 mm² plate, thickness 10 mm, E = 20000 N/mm², Poisson ratio: nu = 0.3, uniform pressure over r=50 mm circle 0.03 N/mm²
+	Al-> center deflection of 0.045 mm for a 100*100 mm² plate, thickness 10 mm, E = 6900 N/mm², Poisson ratio: nu = 0.334, uniform pressure over r=50 mm circle 0.03 N/mm²
+	Steel -> center deflection of 0.015 mm for a 100*100 mm² plate, thickness 10 mm, E = 20000 N/mm², Poisson ratio: nu = 0.3, uniform pressure over r=50 mm circle 0.03 N/mm²
+	Steel -> center deflection of 0.006 mm for a 100*100 mm² plate, thickness 20 mm, E = 20000 N/mm², Poisson ratio: nu = 0.3, uniform pressure over r=50 mm circle 0.03 N/mm²
+
+	Simulation Fusion 360: 
+
+	A deflection of 0.1 mm at the end of the arm platform -> emission angle = 1e-3 radians -> 0.02 mm deflection after 20 mm trajectory
+		I.e. does not affect very much!!!!
 
 For price approximation to Johan @ SKS
 Linear unit: Model KR2602, type A with a stroke length of 169 mm and overall length 320 mm.
 Linear unit: KR30H, type A with a stroke length of 308.8 mm and overall length 470 mm.
 THK caged ball LM guide, Model SSR 15 XW 1 SS +280L Y 
 
+Exclusive taxes (moms):
 KR30H06A-0300-0-00A0                26.818:-
 KR2602A-0160-0-00A0                15.482:-
 SSR15XWSS+280L                1.675:-
 
 He can perhaps offer a matching motor housing.
 
-Evaluation motor+controller offers:
+Evaluation motor (external/captive WTF?) + controller offers:
 
+RS-online:
+	Motor (24 V DC) ~ 600 kr: http://se.rs-online.com/web/p/stepper-motors/8293525/?searchTerm=829-3525&relevancy-data=636F3D3126696E3D4931384E525353746F636B4E756D6265724D504E266C753D656E266D6D3D6D61746368616C6C26706D3D5E283F69292852537C5253207C52532D293F5C647B337D285C73293F5B5C732D2F255C2E2C5D285C73293F5C647B332C347D2426706F3D313426736E3D592673743D52535F53544F434B5F4E554D4245522677633D4E4F4E45267573743D3832392D33353235267374613D3832393335323526
+	Controller ~2000 kr: http://se.rs-online.com/web/p/stepper-drives-indexers/8777216/?searchTerm=877-7216&relevancy-data=636F3D3126696E3D4931384E525353746F636B4E756D6265724D504E266C753D656E266D6D3D6D61746368616C6C26706D3D5E283F69292852537C5253207C52532D293F5C647B337D285C73293F5B5C732D2F255C2E2C5D285C73293F5C647B332C347D2426706F3D313426736E3D592673743D52535F53544F434B5F4E554D4245522677633D4E4F4E45267573743D3837372D37323136267374613D3837373732313626
+	Motor adapter: 814-590/814-607 (around 250 kr)
+	Power supply (3.3-48 V DC) ~ 500 kr: http://se.rs-online.com/web/p/embedded-switch-mode-power-supplies-smps/6802827/?searchTerm=680-2827&relevancy-data=636F3D3126696E3D4931384E525353746F636B4E756D6265724D504E266C753D656E266D6D3D6D61746368616C6C26706D3D5E283F69292852537C5253207C52532D293F5C647B337D285C73293F5B5C732D2F255C2E2C5D285C73293F5C647B332C347D2426706F3D313426736E3D592673743D52535F53544F434B5F4E554D4245522677633D4E4F4E45267573743D3638302D32383237267374613D3638303238323726
+	Relays to completely disconnect the motors!?: http://se.rs-online.com/web/p/non-latching-relays/7943686/?searchTerm=794-3686&relevancy-data=636F3D3126696E3D4931384E525353746F636B4E756D6265724D504E266C753D656E266D6D3D6D61746368616C6C26706D3D5E283F69292852537C5253207C52532D293F5C647B337D285C73293F5B5C732D2F255C2E2C5D285C73293F5C647B332C347D2426706F3D313426736E3D592673743D52535F53544F434B5F4E554D4245522677633D4E4F4E45267573743D3739342D33363836267374613D3739343336383626  
 
+Compotech:
+	Controller Ulrobot: RS232 and CANopen, these are integrated controllers!!!
+	Nema-23 motor
+
+How would you program it?
+Verify that the components fit together!

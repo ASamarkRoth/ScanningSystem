@@ -58,24 +58,31 @@ Finished:
 		The distance going down is limited by the height of the linear units + wagon stuff
 	Contact another firm (than SveMek) for Lycca holder
 		SveMek seems nice here!
+		Order made!
 	Drawings are nice: need to see the complete system!
 	3D drawing of the scanning system
 	Second table : plate on top is fine, drawing is done.
 	Watch "how to" videos from Canberra
 
 To do:
-		Get drawings from producers after an offer/contract
-	What step motors should we purchase?
-		http://www.haydonkerk.com/LinearActuatorProducts/IDEAStepperMotorController/Size17IDEADriveLinearActuator/tabid/372/Default.aspx
-		http://www.haydonkerk.com/LinearActuatorProducts/StepperMotorLinearActuators/LinearActuatorsHybrid/Size17DSLinearActuator/tabid/81/Default.aspx
-		http://se.rs-online.com/web/c/automation-control-gear/electric-motors-motor-controllers-peripherals/stepper-motors/?cm_mmc=SE-PPC-_-google-_-1_SE_SE_G_Motors_Exact-_-Motors%7CStepper&mkwid=sbXD9bGhj_dc|pcrid|80386606092|pkw|stegmotor|pmt|e|prd|&gclid=CjwKEAiA8JbEBRCz2szzhqrx7H8SJAC6FjXXFWNcmNUMmgZ0jgbdtLRbVYzco9kH7SvBR6Dh9YFWLRoCW_3w_wcB#
-		https://www.physikinstrumente.com/en/products/controllers-and-drivers/motion-controllers-for-motor-screw-drives/c-863-mercury-servo-controller-900606/
+	Get drawings from producers after an offer/contract
+	What step motors and controllers should we purchase?
+		Evaluate options obtained from rs-online and Compotech (CNC Linear comp.)
+		Study motor housing alternatives from SKS
 	Determine height adjustable table
-		Can we drill a hole in the blue table?
+		What about the blue table?
+			Drill hole possible?
+			Height interval = ? (important if dewar min height is large)
 		Is it necessary that the 2nd table is height adjustable?
-	Height adjustable platform for dewar
+	Specify collimator arm (not prioritised):
+		Dimensions and material
+		Further simulations should be done
+		Talk to Mikael Ekholm and order from work shop at BMC!?
+	Determine height adjustable platform for dewar, labjack or lyftbord
+		Further investigations needed
 		http://www.e-holmarc.com/product/labjack-ljss300-350/#prettyPhoto?&currency=USD
 	Guillem project -> scan the Compex prototype
+	Is 24V and 48V DC available? (Pavel)
 	
 
 

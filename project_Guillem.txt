@@ -23,10 +23,13 @@ Objectives:
 			With collimator
 			Just detectors
 	Characterise the crystal with a simple scanning
-		Determine the above properties for:
+		Determine the resolution and peak symmetry for:
 			x,y = 4*corner + middle
 			z = optional
 		Analyse
+	OBS: thorough notes!!!
 	Extra: Measure crystal capacitance vs. voltage
 		Determine dopant concentration!?
 
+Extra:
+	Publish on website :)
