@@ -71,9 +71,12 @@ To do:
 		http://se.rs-online.com/web/c/automation-control-gear/electric-motors-motor-controllers-peripherals/stepper-motors/?cm_mmc=SE-PPC-_-google-_-1_SE_SE_G_Motors_Exact-_-Motors%7CStepper&mkwid=sbXD9bGhj_dc|pcrid|80386606092|pkw|stegmotor|pmt|e|prd|&gclid=CjwKEAiA8JbEBRCz2szzhqrx7H8SJAC6FjXXFWNcmNUMmgZ0jgbdtLRbVYzco9kH7SvBR6Dh9YFWLRoCW_3w_wcB#
 		https://www.physikinstrumente.com/en/products/controllers-and-drivers/motion-controllers-for-motor-screw-drives/c-863-mercury-servo-controller-900606/
 	Determine height adjustable table
+		Can we drill a hole in the blue table?
 		Is it necessary that the 2nd table is height adjustable?
 	Height adjustable platform for dewar
 		http://www.e-holmarc.com/product/labjack-ljss300-350/#prettyPhoto?&currency=USD
+	Guillem project -> scan the Compex prototype
+	
 
 
 
