@@ -177,3 +177,15 @@ Compotech:
 
 How would you program it?
 Verify that the components fit together!
+
+Emil solution:
+Need a component that provides current etc. to step the motor, i.e. a motor controller or hats -> gertbot : http://www.gertbot.com/
+	Possible with two motors connected
+	Driving capacity of 30 V and 2.5 A
+	http://uk.rs-online.com/web/p/processor-microcontroller-development-kits/8486806/
+A component that can be programmed to tell the gertbot what to do, i.e. a computer -> raspberry pie 3 https://www.raspberrypi.org/products/raspberry-pi-3-model-b/
+	Can control two motors simple with python
+	http://uk.rs-online.com/web/p/processor-microcontroller-development-kits/8968664/
+
+Study power supply to fit the requirements of the components.
+BooBoo -> We need 48 V power :(
