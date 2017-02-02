@@ -1,0 +1,10 @@
+In this document events that have occurred in the use Compex components should be written down.
+
+Compex prototype:
+26/1: First HV ramp up, ~500 V per 2 min.
+	Signals, well shaped, are there without source
+	Co-60 source added - weirdly shaped signals and spectrum
+27/1: Change of source to Cs-137 ~10 kBq
+	Nice looking spectrum obtained over the weekend
+30/1: Change of scale on oscilloscope -> the y-position of the signal shifts, i.e. we have an offset. This was not the case after first ramp up!
+	Also, mistakenly ramped up the voltage to max (forgot to rotate switch back). But the signal shape still looked good.
