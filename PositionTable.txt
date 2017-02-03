@@ -190,3 +190,9 @@ A component that can be programmed to tell the gertbot what to do, i.e. a comput
 
 Study power supply to fit the requirements of the components.
 BooBoo -> We need 48 V power :(
+
+Compotech 2:
+	Nema 23 hybrid (rotating) stepper motors
+	Galil DMC-4123 controller for both motors
+
+F = M * 2pi * ŋ / p, F = linear force of screw, M = momentum of rotating screw, p = screw pitch/lead, which is the distance travelled for each complete turn of screw, ŋ = efficiency of "screw rotation"/ledskruv
