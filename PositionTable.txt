@@ -196,3 +196,5 @@ Compotech 2:
 	Galil DMC-4123 controller for both motors
 
 F = M * 2pi * ŋ / p, F = linear force of screw, M = momentum of rotating screw, p = screw pitch/lead, which is the distance travelled for each complete turn of screw, ŋ = efficiency of "screw rotation"/ledskruv
+
+p = 6 mm, ŋ = 0.1, F = ?
