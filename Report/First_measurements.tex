@@ -29,6 +29,30 @@ The germanium detector is placed in the bottom of the setup, and the radioactive
 For these first measurements, we used two sources, one source of Cobalt 60 to perform the calibration, and a source of Cesium 137. The activities of the sources are, respectively, 370kBq and 16.5kBq. %to calculate with the ages of the sources
 Both setups were used with both sources and the measurements last until the net area of the biggest peak in the spectrum was 100000 counts at least, to get proper statistics.
 
+\section{Electronics}
 
+%Look at the electronics we used and explain their role (modules, MCA...) and properties.
+
+\section{Analysis}
+
+The very first thing to perform is the calibration of the detector. Indeed, the MCA only store values of received counts into different channels (we used 8192 channels for these measurements) which has no physical meanning. Thus, we need to calibrate the detector so that we obtain a spectrum representing the number of count received as a function of the energy. In order to do so, we use a source of Cobalt 60 because it contains two very high peaks resulting from its $\beta^-$ decay (see its decay scheme Figure~\ref{co60}). We used the first setup for this measurement and associated the channel corresponding to each peak to its energy value. The result is given in the Figure~\ref{calibration}. Then we used the equation we found to perform the analysis thanks to a python program (the whole program is given in the Appendix).
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.4]{Co60_decay.png}
+\label{co60}
+\caption{Decay scheme of Cobalt 60 into Nickel 60. On the final spectrum, we should see two peaks corresponding to the released photons.}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.6]{calibration.png}
+\label{calibration}
+\caption{Calibration plot representing energy as a function of channel number}
+\end{figure}
+
+\begin{figure}
+
+\end{figure}
 
 \end{document}
