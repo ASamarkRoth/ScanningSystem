@@ -13,3 +13,8 @@ Compex prototype:
 06/02: Added a bunch of new modules to get some coincidences. The whole scheme will be drawn in the Latex file as soon as I can.
 	This far, we have the data for 60 and 57 cobalt, 137 cesium and the background. I will start a measurement with a 55 iron source for the night.
 	Worked on coincidences, the whole setup is now working (NIM to TTL was not working correctly) and I will try to get some data tomorrow.
+07/02: First data with the whole coincidence setup are now in the "measurement" folder but is the setup really working ?
+	Indeed, too much noise on the final coincidence spectrum. Noise may come from the scintillators: performed a coincidence measurement shielding the scintillators and still noise.
+	Need to determine exactly how we expect the coincidence spectrum to look like so that we can pursue further.
+	Had to do a new calibration (60 cobalt) while we added gain in order to see coincidences.
+	The setup changed a little: had to remove one of the "collimation bricks" of lead to get a decent count rate and thus the distance from the source to the top of the crystal changed (-70mm total).
