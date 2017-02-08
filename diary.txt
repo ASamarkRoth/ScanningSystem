@@ -18,3 +18,6 @@ Compex prototype:
 	Need to determine exactly how we expect the coincidence spectrum to look like so that we can pursue further.
 	Had to do a new calibration (60 cobalt) while we added gain in order to see coincidences.
 	The setup changed a little: had to remove one of the "collimation bricks" of lead to get a decent count rate and thus the distance from the source to the top of the crystal changed (-70mm total).
+08/02: Started to scan the detector. Used the lead brick to collimate the source (5mm diameter) which is placed at  mm from the top of the detector.
+	Measurement are performed as follows: first beam in the center, then top right handed corner and going anti-trigonometric direction.
+	First four measurements are done, the last one (top left) will go over night.
