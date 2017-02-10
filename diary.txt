@@ -21,3 +21,12 @@ Compex prototype:
 08/02: Started to scan the detector. Used the lead brick to collimate the source (5mm diameter) which is placed at  mm from the top of the detector.
 	Measurement are performed as follows: first beam in the center, then top right handed corner and going anti-trigonometric direction.
 	First four measurements are done, the last one (top left) will go over night.
+09/02: Finished to scan the detector with the cobalt 60 source and started with the cobalt 57 source.
+	The source is too weak to give enough statistics: four hour to get a net area of less than 3000 (Canberra used the peak at 122keV with 100 000 net area a least).
+	Thus, we won't have a lot of statistics but should be enough to get an idea.
+	Started the second measurement for cobalt 57, will finish it tomorrow morning and try to do at least one more.
+	Otherwise, I calculated the resolution for the measurements with cobalt 60 source: the results are in the excel file "Results".
+10/02: Finished to scan the detector with the cobalt 57 source.
+	I stoped the measurements with around 1000 counts in the net area of the peak at 122keV.
+	Calculation of the resolution for each measurement are in the 'Results' file, with the symmetry ratios, and I will write a paragraph to analyse these results.
+	Still can't calculate the efficiency of the detector while we miss information (the age of the sources basically), need to look for this.
