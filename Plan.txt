@@ -83,6 +83,7 @@ To do:
 		http://www.e-holmarc.com/product/labjack-ljss300-350/#prettyPhoto?&currency=USD
 	Guillem project -> scan the Compex prototype
 	Is 24V and 48V DC available? (Pavel)
+	Calculate expected lifetimes for the linear units according to the formulas in the brochures
 	
 
 

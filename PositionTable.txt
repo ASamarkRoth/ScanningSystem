@@ -198,3 +198,10 @@ Compotech 2:
 F = M * 2pi * ŋ / p, F = linear force of screw, M = momentum of rotating screw, p = screw pitch/lead, which is the distance travelled for each complete turn of screw, ŋ = efficiency of "screw rotation"/ledskruv
 
 p = 6 mm, ŋ = 0.1, F = ?
+
+Suggestions from Aratron (corresponding to the linear units from THK):
+KK5002 – 250
+KK6005 – 400
+Linear guide: HGL15CAZ0C
+https://www.aratron.se/wp-content/uploads/2015/05/Aratron_linjarenheter_kulskruvsdrivna_KK.pdf
+https://www.aratron.se/wp-content/uploads/2015/05/Aratron_skenstyrning_hgl.pdf
