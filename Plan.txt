@@ -85,6 +85,7 @@ To do:
 	Is 24V and 48V DC available? (Pavel)
 	Calculate expected lifetimes for the linear units according to the formulas in the brochures
 	
+	Measure spectroscopic features over time...
 
 
 
