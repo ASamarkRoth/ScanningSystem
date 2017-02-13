@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.26)  3 FEB 2017 09:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.26)  13 FEB 2017 12:05
 entering extended mode
 **./First_measurements.tex
 (First_measurements.tex
@@ -607,56 +607,74 @@ G,.JBIG2,.JB2,.eps]
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<Setup.jpg, id=1, 2407.99625pt x 1623.06375pt>
-File: Setup.jpg Graphic file (type jpg)
- <use Setup.jpg>
-Package pdftex.def Info: Setup.jpg used on input line 22.
-(pdftex.def)             Requested size: 481.59073pt x 324.607pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 38.
+<New_setup_back.jpg, id=1, 2569.6pt x 1003.75pt>
+File: New_setup_back.jpg Graphic file (type jpg)
+ <use New_setup_back.jpg>
+Package pdftex.def Info: New_setup_back.jpg used on input line 22.
+(pdftex.def)             Requested size: 385.42337pt x 150.556pt.
 
+<New_setup_front.jpg, id=2, 2569.6pt x 1301.86375pt>
+File: New_setup_front.jpg Graphic file (type jpg)
+ <use New_setup_front.jpg>
+Package pdftex.def Info: New_setup_front.jpg used on input line 29.
+(pdftex.def)             Requested size: 385.42337pt x 195.27113pt.
+
+
+LaTeX Warning: Reference `scan' on page 1 undefined on input line 36.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 36.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 38.
+LaTeX Font Info:    Try loading font information for U+msb on input line 36.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+<Cos_decays.png, id=3, 523.35526pt x 186.6975pt>
+File: Cos_decays.png Graphic file (type png)
+ <use Cos_decays.png>
+Package pdftex.def Info: Cos_decays.png used on input line 40.
+(pdftex.def)             Requested size: 471.01537pt x 168.02618pt.
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./Setup.jpg>]
-<Co60_decay.png, id=8, 435.6275pt x 376.40625pt>
-File: Co60_decay.png Graphic file (type png)
- <use Co60_decay.png>
-Package pdftex.def Info: Co60_decay.png used on input line 42.
-(pdftex.def)             Requested size: 174.24791pt x 150.55983pt.
 
-<calibration.png, id=10, 628.749pt x 378.81525pt>
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<calibration.png, id=5, 652.23676pt x 389.65575pt>
 File: calibration.png Graphic file (type png)
  <use calibration.png>
-Package pdftex.def Info: calibration.png used on input line 49.
-(pdftex.def)             Requested size: 377.2523pt x 227.2909pt.
+Package pdftex.def Info: calibration.png used on input line 47.
+(pdftex.def)             Requested size: 391.34506pt x 233.79524pt.
 
-[2 <./Co60_decay.png> <./calibration.png>] (First_measurements.aux)
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./New_setup_back.jpg> <./
+New_setup_front.jpg>] [2 <./Cos_decays.png> <./calibration.png>]
+(First_measurements.aux)
+
+LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3854 strings out of 493335
- 49116 string characters out of 3136680
- 121260 words of memory out of 3000000
- 7302 multiletter control sequences out of 15000+200000
- 10600 words of font info for 35 fonts, out of 3000000 for 9000
+ 3859 strings out of 493335
+ 49277 string characters out of 3136680
+ 121268 words of memory out of 3000000
+ 7305 multiletter control sequences out of 15000+200000
+ 11383 words of font info for 36 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,6n,25p,932b,225s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,6n,25p,785b,225s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
-ecrm1095.pk> <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
-ec\dpi600\ecbx1440.pk><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmsy8.pfb>
-Output written on First_measurements.pdf (2 pages, 954963 bytes).
+ecbx1095.pk> <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
+ec\dpi600\ecrm1095.pk> <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
+\jknappen\ec\dpi600\ecbx1440.pk><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmr8.pfb>
+Output written on First_measurements.pdf (2 pages, 1392532 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
+ 104 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
