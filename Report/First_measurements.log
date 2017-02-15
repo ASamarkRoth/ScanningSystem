@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.26)  14 FEB 2017 13:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.26)  15 FEB 2017 15:57
 entering extended mode
 **./First_measurements.tex
 (First_measurements.tex
@@ -661,28 +661,44 @@ Package pdftex.def Info: electro1.png used on input line 70.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [2 <./scan.png> <./Cos_decays.png>] [3 <./calibration.png> <./electro1.png>]
-<Scan_Cos.png, id=24, 640.19176pt x 405.31425pt>
+<Scan_Cos.png, id=24, 643.203pt x 396.88275pt>
 File: Scan_Cos.png Graphic file (type png)
  <use Scan_Cos.png>
 Package pdftex.def Info: Scan_Cos.png used on input line 85.
-(pdftex.def)             Requested size: 448.13118pt x 283.71803pt.
- [4 <./Scan_Cos.png>] (First_measurements.aux) ) 
+(pdftex.def)             Requested size: 450.23903pt x 277.81602pt.
+ [4 <./Scan_Cos.png>] <Scan_Cos_2.png, id=28, 652.23676pt x 396.88275pt>
+File: Scan_Cos_2.png Graphic file (type png)
+
+<use Scan_Cos_2.png>
+Package pdftex.def Info: Scan_Cos_2.png used on input line 103.
+(pdftex.def)             Requested size: 456.5626pt x 277.81602pt.
+ <Calibration_2.png, id=29, 493.845pt x 299.31825pt>
+File: Calibration_2.png Graphic file (type png)
+
+<use Calibration_2.png>
+Package pdftex.def Info: Calibration_2.png used on input line 110.
+(pdftex.def)             Requested size: 444.45638pt x 269.38393pt.
+ [5 <./Scan_Cos_2.png>] [6 <./Calibration_2.png>]
+(First_measurements.aux) ) 
 Here is how much of TeX's memory you used:
- 3882 strings out of 493335
- 49569 string characters out of 3136680
- 122292 words of memory out of 3000000
- 7324 multiletter control sequences out of 15000+200000
- 12140 words of font info for 37 fonts, out of 3000000 for 9000
+ 3900 strings out of 493335
+ 49843 string characters out of 3136680
+ 122308 words of memory out of 3000000
+ 7337 multiletter control sequences out of 15000+200000
+ 14359 words of font info for 40 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,6n,25p,839b,227s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\gtoca\AppData\Local\
-MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <C:\Users\gtoca\AppD
-ata\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\
-gtoca\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk><
-C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on First_measurements.pdf (4 pages, 12220819 bytes).
+ 40i,6n,25p,1197b,227s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\fonts\pk\lj
+four\jknappen\ec\dpi600\ecti1095.pk> <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\f
+onts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <C:\Users\gtoca\AppData\Local\Mi
+KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\gtoca\AppDat
+a\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fil
+es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files 
+(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+Output written on First_measurements.pdf (6 pages, 12312288 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
+ 180 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
