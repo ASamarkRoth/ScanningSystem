@@ -30,3 +30,11 @@ Compex prototype:
 	I stoped the measurements with around 1000 counts in the net area of the peak at 122keV.
 	Calculation of the resolution for each measurement are in the 'Results' file, with the symmetry ratios, and I will write a paragraph to analyse these results.
 	Still can't calculate the efficiency of the detector while we miss information (the age of the sources basically), need to look for this.
+15/02: Point on the analysis now that the measurements are done:
+		-At first glance, resolution is a bit lower than what expected seing the Canberra measurements for 60Co but way lower for 57Co (twice larger).
+		-The symmetry ratios on the other hand are better than what Canberra measured which means the peaks we have look more like real Gaussians (still need to look at this in detail for the analysis routine in Python).
+		-There is a shift in energy between the different positions of the collimated source (center or corners) for both cobalt sources. Fot this, I tried to calibrate using the two sources and not only 60Co to have a 
+		 peak in lower energies. The results are "better" in the sense that now the peak in 57Co spectrum is closer to its literature value, but of course, the shift is still present. See the Results excel file.
+		-I asked Mikael and the source is so to say a ghost source, implying we don't now its age and thus can't calculate the efficiency of the crystal.
+	I will write this in the report today and continue with the analysis (background, other peaks in the spectra, look at the coincidence data...).
+	I am calculating the peak-to-Compton values in each case, will finish this tomorrow.
