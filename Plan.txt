@@ -2,6 +2,38 @@ Plan for lp1 scanning system.
 
 What to do?
 
+To do:
+	What step motors and controllers should we purchase?
+		Evaluate options obtained from rs-online and Compotech (CNC Linear comp.)
+		Study motor housing alternatives from SKS
+		Aratron and Compotech alternatives
+	Determine height adjustable table
+		What about the blue table?
+			Drill hole possible?
+			Height interval = ? (important if dewar min height is large)
+		Is it necessary that the 2nd table is height adjustable?
+	Specify collimator arm (not prioritised):
+		Dimensions and material
+		Further simulations should be done
+		Talk to Mikael Ekholm and order from work shop at BMC!?
+	Determine height adjustable platform for dewar, labjack or lyftbord
+		Further investigations needed
+		http://www.e-holmarc.com/product/labjack-ljss300-350/#prettyPhoto?&currency=USD
+	Guillem project -> scan the Compex prototype
+	Is 24V and 48V DC available? (Pavel)
+	Calculate expected lifetimes for the linear units according to the formulas in the brochures
+	
+	Measure spectroscopic features over time...
+	Measure for different bias HV!
+	Produce a Co-57 source with the accelerator
+	Program and configure voltage-ramp control
+
+
+
+
+
+
+
 Lab
 	Assemble and set up equipment
 
@@ -63,29 +95,9 @@ Finished:
 	3D drawing of the scanning system
 	Second table : plate on top is fine, drawing is done.
 	Watch "how to" videos from Canberra
-
-To do:
 	Get drawings from producers after an offer/contract
-	What step motors and controllers should we purchase?
-		Evaluate options obtained from rs-online and Compotech (CNC Linear comp.)
-		Study motor housing alternatives from SKS
-	Determine height adjustable table
-		What about the blue table?
-			Drill hole possible?
-			Height interval = ? (important if dewar min height is large)
-		Is it necessary that the 2nd table is height adjustable?
-	Specify collimator arm (not prioritised):
-		Dimensions and material
-		Further simulations should be done
-		Talk to Mikael Ekholm and order from work shop at BMC!?
-	Determine height adjustable platform for dewar, labjack or lyftbord
-		Further investigations needed
-		http://www.e-holmarc.com/product/labjack-ljss300-350/#prettyPhoto?&currency=USD
-	Guillem project -> scan the Compex prototype
-	Is 24V and 48V DC available? (Pavel)
-	Calculate expected lifetimes for the linear units according to the formulas in the brochures
-	
-	Measure spectroscopic features over time...
+		Guillem has fixed this!
+
 
 
 
