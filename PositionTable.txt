@@ -206,7 +206,10 @@ KK5002 – 250
 KK6005 – 400
 Linear guide: HGL15CAZ0C
 https://www.aratron.se/wp-content/uploads/2015/05/Aratron_linjarenheter_kulskruvsdrivna_KK.pdf
+	Can have motor housing included! 
 https://www.aratron.se/wp-content/uploads/2015/05/Aratron_skenstyrning_hgl.pdf
+PDF from Michael Persson:
+	Exists cross table adapter (two crossing linear units)
 
 
 Introduction to torque and stepper motors:
