@@ -1,5 +1,50 @@
-﻿Links
+﻿Solution Aratron+Compotech
+aratron.se
+https://www.aratron.se/sv/
+http://www.hiwin.de/en/Products/Motors_Drives_and_Accessories/8310
+http://en.compotech.se/
 
+Aratron - linear units, railway + wagon (1st suggestion):
+1st KK5002C-250A1-F3S0
+Pris: 4650:-/st)
+1st KK6005C-400A1-F3S0
+Pris: 6650:-/st)
+Flygfrakt 1200:- från Taiwan
+1st Wagon HGH15CAZ0C Pris: 355:-/st
+1st railway/guide HGR15 L=340 E= 20/20 Pris 208:-/st
+1st kapkostnad 60:-
+
+Linear units fixed on each other and/or on the linear guide -> adaptor plate to match height and screws
+
+Enough with two holes fixed on the wagon, but 4 holes should be preferred on the lu-lu
+
+Wagon from HG-series: 
+HGW15CC matches screws (but height)
+
+Two small blocks should be preferred for the base linear unit with respect to torque from the load on the top linear unit (lifetime).
+Downside: need additional adapter in some way...
+
+KK60 to KK60 might be preferable concerning adapter plate
+
+The advantage with the adaptor plate is that the linear units is properly fixed and aligned in the correct direction with 4 screws. Some downsides with use without adaptor plate is that the tolerance of the holes w.r.t. the screws will imply not a completely fixed linear unit. With pins this can be optimised but one would still have the problem that you only fix it with 2 screws. 
+
+What about the monment of inertia? Why do we need to consider this?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________________________
+Links
 https://www.thorlabs.com/navigation.cfm?guide_id=2081
 http://www.xyz-stage.com/datasheets/XY_Precision_Positioners.pdf
 https://www.physikinstrumente.com/en/products/xy-stages/stages-with-motor-screw-drives/
