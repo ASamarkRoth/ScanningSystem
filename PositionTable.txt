@@ -198,6 +198,8 @@ Compotech 2:
 F = M * 2pi * ŋ / p, F = linear force of screw, M = momentum of rotating screw, p = screw pitch/lead, which is the distance travelled for each complete turn of screw, ŋ = efficiency of "screw rotation"/ledskruv
 
 p = 6 mm, ŋ = 0.1, F = ?
+From the Compotech-rotary stepper brochure: 
+	Pull out torque-speed curves 36 V DC Chopper driver, 2 phases NEMA 23: ~ 0.5 Nm -> F = 52 N
 
 Suggestions from Aratron (corresponding to the linear units from THK):
 KK5002 – 250
@@ -205,3 +207,10 @@ KK6005 – 400
 Linear guide: HGL15CAZ0C
 https://www.aratron.se/wp-content/uploads/2015/05/Aratron_linjarenheter_kulskruvsdrivna_KK.pdf
 https://www.aratron.se/wp-content/uploads/2015/05/Aratron_skenstyrning_hgl.pdf
+
+
+Introduction to torque and stepper motors:
+http://www.nmbtc.com/step-motors/engineering/torque-and-speed-relationship/
+Pull-out torque:
+In synchronous motors the value of pull-out torque is a maximum value of torque which allows a synchronous motor to remain in synchronism without “pulling out” of step or synchronism.
+Starting torque: torque needed to move wagon without load
