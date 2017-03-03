@@ -11,6 +11,8 @@ Pris: 4650:-/st)
 Pris: 6650:-/st)
 Flygfrakt 1200:- från Taiwan
 1st Wagon HGH15CAZ0C Pris: 355:-/st
+	HGW15CC ? What is rest?
+	C = Heavy load, A = mount from top, missing 1 for nbr. blocks per rail, ...
 1st railway/guide HGR15 L=340 E= 20/20 Pris 208:-/st
 1st kapkostnad 60:-
 
@@ -19,7 +21,7 @@ Linear units fixed on each other and/or on the linear guide -> adaptor plate to 
 Enough with two holes fixed on the wagon, but 4 holes should be preferred on the lu-lu
 
 Wagon from HG-series: 
-HGW15CC matches screws (but height)
+HGW15CC matches screws (but height 24 vs 26 of lu)
 
 Two small blocks should be preferred for the base linear unit with respect to torque from the load on the top linear unit (lifetime).
 Downside: need additional adapter in some way...
@@ -28,11 +30,9 @@ KK60 to KK60 might be preferable concerning adapter plate
 
 The advantage with the adaptor plate is that the linear units is properly fixed and aligned in the correct direction with 4 screws. Some downsides with use without adaptor plate is that the tolerance of the holes w.r.t. the screws will imply not a completely fixed linear unit. With pins this can be optimised but one would still have the problem that you only fix it with 2 screws. 
 
-What about the monment of inertia? Why do we need to consider this?
+What about the monment of inertia? Why do we need to consider this?  
 
-
-
-
+Mounting of railway: Do not fix it on the base plate, let the transversal linear unit first roll and align itself -> then fix it!
 
 
 
