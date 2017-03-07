@@ -23,12 +23,20 @@ To do:
 	Is 24V and 48V DC available? (Pavel)
 	Calculate expected lifetimes for the linear units according to the formulas in the brochures
 	
-	Measure spectroscopic features over time...
-	Measure for different bias HV!
 	Produce a Co-57 source with the accelerator
 	Program and configure voltage-ramp control
 
+	LYCCA:
+		Acquire delivered equipment, where is Lycca holders?
+		Build Lycca ring
+		Measure and evaluate the crystals. How?
+	
+	Purchase gamma sources:
+		http://www.ezag.com/home/products/isotope_products/isotrak_calibration_sources/reference_sources/gamma_sources/
 
+	For future measurements:
+		Measure spectroscopic features over time...
+		Measure for different bias HV!
 
 
 
