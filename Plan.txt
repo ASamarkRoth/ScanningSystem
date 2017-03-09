@@ -23,11 +23,11 @@ To do:
 	Is 24V and 48V DC available? (Pavel)
 	Calculate expected lifetimes for the linear units according to the formulas in the brochures
 	
-	Produce a Co-57 source with the accelerator
 	Program and configure voltage-ramp control
 
 	LYCCA:
-		Acquire delivered equipment, where is Lycca holders?
+		We need screws, determine which ones and how many
+		Find rods, determine length
 		Build Lycca ring
 		Measure and evaluate the crystals. How?
 	
