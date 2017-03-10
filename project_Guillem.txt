@@ -31,5 +31,14 @@ Objectives:
 	Extra: Measure crystal capacitance vs. voltage
 		Determine dopant concentration!?
 
+_________________________________________________________________________________
+
+Update:
+¤ Describe the development process of the scanning system
+¤ Present the resolution measurements of the prototype crystals
+
+
+
+
 Extra:
 	Publish on website :)
