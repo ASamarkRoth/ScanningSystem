@@ -18,6 +18,9 @@ To do:
 		iseg
 		Need to purchase two additional modules with negative polarity?
 
+	Think about the collimator arm, how should it look like ? Make some drawings with different configurations ?
+	Same thing for the top table, especially the four feet of the table.
+
 	LYCCA:
 		We need screws, determine which ones and how many
 		Find rods, determine length
