@@ -16,7 +16,10 @@ To do:
 	
 	Program and configure voltage-ramp control
 		iseg
-		Need to purchase two additional modules with negative polarity?
+			Software installed on a stationary Windows Vista
+			Need dsub9<->usb connect or PCAN-USB adaptor
+				Ordered!
+			All the final crystals will come with positive polarity HV -> no need to purchase more modules.
 
 	Think about the collimator arm, how should it look like ? Make some drawings with different configurations ?
 	Same thing for the top table, especially the four feet of the table.
@@ -30,6 +33,7 @@ To do:
 	Purchase gamma sources:
 		http://www.ezag.com/home/products/isotope_products/isotrak_calibration_sources/reference_sources/gamma_sources/
 		Been in contact with Mikael Elfman!
+		For efficiency measurements we need a calibrated Co-60 source. Should we buy?
 
 	For future measurements:
 		Measure spectroscopic features over time...
