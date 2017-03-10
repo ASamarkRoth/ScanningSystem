@@ -3,27 +3,20 @@ Plan for lp1 scanning system.
 What to do?
 
 To do:
-	What step motors and controllers should we purchase?
-		Evaluate options obtained from rs-online and Compotech (CNC Linear comp.)
-		Study motor housing alternatives from SKS
-		Aratron and Compotech alternatives
-	Determine height adjustable table
-		What about the blue table?
-			Drill hole possible?
-			Height interval = ? (important if dewar min height is large)
-		Is it necessary that the 2nd table is height adjustable?
-	Specify collimator arm (not prioritised):
+	Specify collimator arm (now somewhat prioritised):
 		Dimensions and material
 		Further simulations should be done
 		Talk to Mikael Ekholm and order from work shop at BMC!?
-	Determine height adjustable platform for dewar, labjack or lyftbord
-		Further investigations needed
-		http://www.e-holmarc.com/product/labjack-ljss300-350/#prettyPhoto?&currency=USD
-	Guillem project -> scan the Compex prototype
-	Is 24V and 48V DC available? (Pavel)
+	Guillem project -> scan the Compex prototypes
+	Power supply Gertbot (Pavel)
+	Cableing: Gertbot <-> motors
+		Shielded!
+		"Moveable"
 	Calculate expected lifetimes for the linear units according to the formulas in the brochures
 	
 	Program and configure voltage-ramp control
+		iseg
+		Need to purchase two additional modules with negative polarity?
 
 	LYCCA:
 		We need screws, determine which ones and how many
@@ -33,6 +26,7 @@ To do:
 	
 	Purchase gamma sources:
 		http://www.ezag.com/home/products/isotope_products/isotrak_calibration_sources/reference_sources/gamma_sources/
+		Been in contact with Mikael Elfman!
 
 	For future measurements:
 		Measure spectroscopic features over time...
@@ -88,6 +82,18 @@ Scanning system
 			Comparison
 		
 Finished:
+	Determine height adjustable platform for dewar, labjack or lyftbord
+		Further investigations needed
+		http://www.e-holmarc.com/product/labjack-ljss300-350/#prettyPhoto?&currency=USD
+	What step motors and controllers should we purchase?
+		Evaluate options obtained from rs-online and Compotech (CNC Linear comp.)
+		Study motor housing alternatives from SKS
+		Aratron and Compotech alternatives
+	Determine height adjustable table
+		What about the blue table?
+			Drill hole possible?
+			Height interval = ? (important if dewar min height is large)
+		Is it necessary that the 2nd table is height adjustable?
 	Decide the linear units and the LM guide
 		Hear from PI?
 			Yeah 2 proposals, but it looked expensive!

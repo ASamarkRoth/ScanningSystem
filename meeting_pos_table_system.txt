@@ -12,7 +12,7 @@ Pris: 6650:-/st)
 Servokoppling mellan stegmotor och KK50enhet
 Pris: 350:-/st
 Flygfrakt 1200:- från Taiwan
-1st Åkvagn HGL15CAZ0C Pris: 355:-/st
+1st Åkvagn HGWCC15CAZ0C Pris: 355:-/st?
 1st Skena HGR15 L=340 E= 20/20 Pris 208:-/st 1st kapkostnad 60:-
  Totalpris exklusive stegmotorer & motorstyrning
  13 823:-/system
@@ -32,6 +32,12 @@ Rs-online: 600 kr
 
 Raspberry pie 3 - Computer
 Rs-online: Raspberry Pi 3 Model B SBC: 300 kr
+r-pi - package: 840 kr
+	Raspberry Pi 3 Model B med inbyggd WiFi och BT
+	Case (unnecessary, does not fit with Gertbot!)
+	Power supply
+	Memory card
+
 	Remote controlled via ethernet!
 	It goes on the Gertbot!
 
