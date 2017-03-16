@@ -4,7 +4,25 @@ import matplotlib.pyplot as plt
 #http://ijcps.org/admin/php/uploads/384_pdf.pdf
 #http://dtic.mil/dtic/tr/fulltext/u2/a278139.pdf
 
+
 #linear mass absorption coefficients
+#0.6 MeV = 0.1 cm^2/g
+mu_W = 18*0.1 # cm^1
+
+#After distance of 50 mm, i.e. at the end of collimator, with 1.5 GBq source:
+
+activity = 1.5e9*np.exp(-mu_W*5.7)
+
+print("Activity = ", activity)
+d = 25
+RD = 2.5
+
+Omega1 = 2*np.pi*(1 - 1/(np.sqrt(1+RD**2/d**2)))
+print("Omega1 = ", Omega1)
+Omega2 = RD**2/(4*d**2)
+print("Omega2 = ", Omega2)
+
+
 mu_Pb = 7.7602 #cm^-1
 mu_Cu = 31.6936
 #for second source at 0.6 MeV

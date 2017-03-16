@@ -35,6 +35,12 @@ To do:
 		Been in contact with Mikael Elfman!
 		For efficiency measurements we need a calibrated Co-60 source. Should we buy?
 
+	Write reports (both)
+
+	Calibrate a Co-60 source as performed in Natasa's NIM article
+		What second detector should be used?
+		Need energy gated coincidences...
+
 	For future measurements:
 		Measure spectroscopic features over time...
 		Measure for different bias HV!

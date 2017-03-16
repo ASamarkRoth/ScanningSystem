@@ -1,6 +1,6 @@
 In this document we structure Guillem's project work. 
 
-Overall: Development of the Lund germanium detector scanning system and characterisation of a square type HPGe crystal
+Overall: Characterisation of a square type HPGe crystal and development of the Lund germanium detector scanning system 
 
 Objectives:
 
