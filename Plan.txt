@@ -7,20 +7,15 @@ To do:
 		Dimensions and material
 		Further simulations should be done
 		Talk to Mikael Ekholm and order from work shop at BMC!?
-	Guillem project -> scan the Compex prototypes
+		Should we use support wheels?
+	Order top table and legs
+		Consult SveMek about materials and order
 	Power supply Gertbot (Pavel)
 	Cableing: Gertbot <-> motors
 		Shielded!
 		"Moveable"
 	Calculate expected lifetimes for the linear units according to the formulas in the brochures
 	
-	Program and configure voltage-ramp control
-		iseg
-			Software installed on a stationary Windows Vista
-			Need dsub9<->usb connect or PCAN-USB adaptor
-				Ordered!
-			All the final crystals will come with positive polarity HV -> no need to purchase more modules.
-
 	Think about the collimator arm, how should it look like ? Make some drawings with different configurations ?
 	Same thing for the top table, especially the four feet of the table.
 
@@ -29,13 +24,6 @@ To do:
 		Find rods, determine length
 		Build Lycca ring
 		Measure and evaluate the crystals. How?
-	
-	Purchase gamma sources:
-		http://www.ezag.com/home/products/isotope_products/isotrak_calibration_sources/reference_sources/gamma_sources/
-		Been in contact with Mikael Elfman!
-		For efficiency measurements we need a calibrated Co-60 source. Should we buy?
-
-	Write reports (both)
 
 	Calibrate a Co-60 source as performed in Natasa's NIM article
 		What second detector should be used?
@@ -45,6 +33,7 @@ To do:
 		Measure spectroscopic features over time...
 		Measure for different bias HV!
 
+	Write reports (both)
 
 
 
@@ -124,6 +113,19 @@ Finished:
 	Watch "how to" videos from Canberra
 	Get drawings from producers after an offer/contract
 		Guillem has fixed this!
+
+	Purchase gamma sources:
+		http://www.ezag.com/home/products/isotope_products/isotrak_calibration_sources/reference_sources/gamma_sources/
+		Been in contact with Mikael Elfman!
+		For efficiency measurements we need a calibrated Co-60 source. Should we buy?
+
+	Program and configure voltage-ramp control
+		iseg
+			Software installed on a stationary Windows Vista
+			Need dsub9<->usb connect or PCAN-USB adaptor
+				Ordered!
+			All the final crystals will come with positive polarity HV -> no need to purchase more modules.
+
 
 
 	VERY IMPORTANT:
