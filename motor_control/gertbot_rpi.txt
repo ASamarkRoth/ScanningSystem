@@ -7,5 +7,7 @@ It runs with Linux and Windows. However as stated here: http://www.raspbian.org/
 Power supply: Genesys, TDK-Lambda (Pisa box?)
 	We have manual in-house.
 	Need RS232-USB connector cable from TDK-Lambda to r-pi.
+		https://www.dustinhome.se/product/5010778662/adapter?ssel=false&utm_campaign=pricerunner&utm_source=pricerunner.se&utm_medium=pricecompare&utm_content=5637146061
 	There is a set communication protocol which can be used via a port
 		interface: Python with pySerial module - http://www.varesano.net/blog/fabio/serial%20rs232%20connections%20python
+
