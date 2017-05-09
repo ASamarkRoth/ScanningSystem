@@ -31,3 +31,20 @@ They will acquire the rods from central storage and text me Thursday 23/3 when t
 
 
 
+### Screws positioning system ###
+* KK50-bottom <-> top plate: 6 st; HEAD=8x4, THRU=4.5 (no thread), thickness top plate = 10 mm
+* KK50-wagon <-> KK60-base: 
+
+	* Wagon: 4 st; M4x0.7
+	* KK60-base; 4?=2; HEAD 9.5x4.7, THRU=5.5
+
+* Linear guide base <-> top-plate: 4 st; 7.5(measured~8)x5.3, THRU=4.5x(15-5.3=9.7), thickness top plate = 10 mm
+* Linear guide wagon <-> KK60-base:
+
+	* Wagon: M4 THRU
+	* KK60-base; 4?=2; HEAD 9.5x4.7, THRU=5.5
+
+* Collimator arm <-> KK60-wagon:
+
+	* Wagon: 4 st; M5x0.8
+	* Thickness collimator arm = 10 mm
