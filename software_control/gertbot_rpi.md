@@ -8,6 +8,13 @@ As stated here: [gertbot.com](https://www.gertbot.com/) It runs with Linux and W
 Power supply: Genesys, TDK-Lambda (Pizza box)
 
 *   The stepper motor 17H261-02S/D requires 1.8 A, max (see mail _Compotech_). From the specification sheet of the motor it says R = 4 (+- 10%) Ohm. The stepper motor runs on DC. However from one of the _Compotech_ sheets they provide: " Pull out torque-speed curves 24 V DC Chopper driver, 2 phases". 
+
+	* <http://compotech.se/blogg/2014/06/sa-valjer-du-ratt-spanning-din-stegmotordrift/>
+	* <http://www.galilmc.com/download/application-note/note5466.pdf>
+	* 1.2 A/phase and 4 Ohms wire-resistance -> 4.8 V (this is now slow) ~ 6V (1.5 A).
+	* Now need a series resistor drive the controller which requires 8V.
+	* What about connection of 2 stepper motors from the same power supply?
+
 -   We have manual in-house.
 -   Need RS232-USB connector cable from TDK-Lambda to r-pi.
 
@@ -17,6 +24,7 @@ Power supply: Genesys, TDK-Lambda (Pizza box)
 -   There is a set communication protocol which can be used via a port
 
     -   interface: Python with pySerial module - [pySerial](http://www.varesano.net/blog/fabio/serial%20rs232%20connections%20python)
+    * <http://stackoverflow.com/questions/676172/full-examples-of-using-pyserial-package>
 
 Cableing:
 
