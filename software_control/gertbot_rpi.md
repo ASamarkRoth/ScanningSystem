@@ -23,3 +23,5 @@ Cableing:
 -   There are cables that can be used for free in the µ-hall
 -   How these are compatible with the power supply is still unclear!
 
+
+* Useful <https://www.isnr.de/images/Tools/low_cost_CT/How-to-set-up-the-Raspberry-Pi-and-Gertbot-as-a-tomography-controller-V2_30-08-2016.pdf>
