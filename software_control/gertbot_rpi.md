@@ -33,3 +33,19 @@ Cableing:
 
 
 * Useful <https://www.isnr.de/images/Tools/low_cost_CT/How-to-set-up-the-Raspberry-Pi-and-Gertbot-as-a-tomography-controller-V2_30-08-2016.pdf>
+
+
+## TDK-Lambda control ##
+* We have model Gen 50-30!
+
+* LAN-connection seems to be preferable : See LAN manual in .
+
+* Exist LabView GUI for Windows: <http://www.us.tdk-lambda.com/hp/product_html/Drivers/drivers_10.htm>
+
+* Many drivers exist from here: <http://www.us.tdk-lambda.com/hp/register.htm> 
+* <http://www.us.tdk-lambda.com/hp/product_html/drivers.htm> If this one does not work, find bookmark!
+
+* For unix: <http://www.us.tdk-lambda.com/hp/product_html/Drivers/drivers_8.htm>
+* TCP vs. UDP communication protocol: <http://www.diffen.com/difference/TCP_vs_UDP>
+
+* All software compressed files can be found in new folder _SoftwareDownloads_ \@xi. 
