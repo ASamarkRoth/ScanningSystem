@@ -5,8 +5,7 @@
 * <https://tools.se/produkterSe/fastteknik/industriinfastning/helgangad-stang/Gangstang-HGS-4.8-ANS-FZB-1411093-sv-se#v=SE-2605977>
 * Malmö!
 
-1. They will acquire the rods from central storage and text me Thursday 23/3 when they are in.
-2. They are in our possession. They need to be produced to correct lengths!
+These have been processed and tested.
 
 ### Screws for setting up LYCCA ring: ###
 
@@ -14,11 +13,16 @@
 
 * From top: l = 10+10 = 20 mm, no protruding head
 * <https://tools.se/produkterSe/fastteknik/industriinfastning/maskingangad-insexskruv/-SchaferPeters-A2-1411468-sv-se?categoryId=1073748027#v=SE-2027270>
-* Lund!
+* Here we chose M6x25mm with no head!
 * 
 * From bottom: Drill small larger "holes" for head? -> l = 10 (Al base) + 10 (Plexi bottom) + 10 (in distance pin) = 30 mm
 * <https://tools.se/produkterSe/fastteknik/industriinfastning/maskingangad-insexskruv/Insexskruv-MF6S-10.9-Forsankt-cyl.-huvud-ANS-FZB-1411311-sv-se>
-* Lund!
+* Here we chose M6x35 or M6x30mm (if former does not work) with försänkt head!
+
+#### 2 screws for correct positioning of the LYCCA base on the table ####
+
+* l = 10+10+15+(depth in table=)15 = 50 (max), this is M6!
+* They cannot have head or something like that. See storage in lab. 
 
 #### 12 M3 screws for fixing each LYCCA module in the bottom plate ####
 
@@ -57,7 +61,7 @@ Dubbelhäftande tape to fix the 4 plastic boxes on the preamplifiers and the pre
 	* Wagon: 4 st; M5x0.8
 	* Thickness collimator arm = 10 mm
 
-		* Final: M5x18 + plate M5. This needs confirmation!!!!
+		* Final: M5x18 + plate M5. 
 	
 Remarks: Sadly no plates matches the space for the screw heads on the base of the linear units, unclear why this construction. 
 
@@ -70,6 +74,13 @@ Remarks: Sadly no plates matches the space for the screw heads on the base of th
 	* With a forceps (pincett) the cleaned balls were moved back. 
 	* At second try it was successful. 
 3. It is important that the guide is not fixed when run, as it needs to adapt its path to horisontal with the linear unit.
+
+### Mounting the collimator arm on the KK60 and placing the collimator ###
+
+1. Make sure that you mount it in such a way that the arm extends on that side of the KK60 where there is no "frame" sticking out.
+2. Fix the two screws (see above for which screws to use) with the longest distance from the arm first. Fix as much as possible and verify that they are positioned correctly by observing horizontal arm (both on wagon and w.r.t. table).
+3. Fix the other screws as good as possible. 
+4. Place the collimator and observe no change in the set-up. 
 
 ## Setting up the Raspberry Pi - Gertbot - stepper motors  ## 
 
