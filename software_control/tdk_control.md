@@ -51,13 +51,13 @@ _Setting baud rate:_ `stty -F /dev/ttyS0 9600`
 ##Setting up ##
 **Following this:**  <https://unix.stackexchange.com/questions/117037/how-to-send-data-to-a-serial-port-and-see-any-answer>
 
+1. **OBS ensure everything is connected!**
 1. `dmesg | grep tty` - checks serial port connection. Here you get `ttyUSB2` @ebbe and seemingly `ttyUSB0` @lundiumberry.
 2. `sudo chmod o+rw /dev/ttyUSB2` - change read and writing permissions.
-3. `stty -F /dev/ttyUSB2 9600 cs8 -cstopb` - Setting up TDK-Lambda communication protocol (see below).
+3. `stty -F /dev/ttyUSB2 9600 cs8 -cstopb -parenb -echo` - Setting up TDK-Lambda communication protocol (see below). `-echo` is needed @lundiumberry since otherwise the machine tries to read commands all the time. 
 4. Open two terminal tabs and read in one and write in the other:
-5. _Read_: `cat -v < /dev/ttyUSB2`
-5. _Write_: `echo -ne 'ADR 06' > /dev/ttyUSB2`
-6. **NO ANSWER nor action:(**
+5. _Read_: `cat < /dev/ttyUSB2`
+5. _Write_: `echo -ne 'OUT 1\r' > /dev/ttyUSB2` where `\r = \015` mirrors the user hitting _enter_.
 
 _According to manual_:
 
@@ -78,6 +78,19 @@ Tried:
 
 _How to send commands_: <http://www.linuxquestions.org/questions/linux-software-2/how-to-send-a-command-to-a-screen-session-625015/>
 <https://pixhawk.ethz.ch/tutorials/serial_terminal>
-Setup was tried with: `screen /dev/ttyUSB2 9600,cs8,-parentb,-cstopb,-parenb`
+Setup was tried with: `screen -S tdk /dev/ttyUSB2 9600,cs8,-parentb,-cstopb,-parenb`
+`screen -d -m -S tdk /dev/ttyUSB2 9600,cs8,-parentb,-cstopb,-parenb`
+It worked with these settings, however not with commands ...
 
 _Minicom_: also tried, real sweet for port settings.
+
+* This worked ... <https://askubuntu.com/questions/805262/cannot-send-at-commands-in-minicom>
+
+Tried _PUTTY_ on windows and that worked. OBS need to force read and echo!
+
+## To-do ##
+
+1. Make a script which can be invoked from an SSH-session. It should:
+	
+	* Set output voltage to ~8V, and switch output ON/OFF. 
+	* Read the current outputs; voltage and current. It should work as a check from the master that everything is fine.
