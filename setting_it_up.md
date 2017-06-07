@@ -113,7 +113,7 @@ Remarks: Sadly no plates matches the space for the screw heads on the base of th
 3. The Gertbot controller requires at least 8 V (8-18 V is recommended, see gertbot.com) to function. This has the consequence that it is necessary to connect a resistor in series with the phase of the stepper motors. A 15 V nominal input voltage was chosen which implies 6 Ohms resistors. 
 4. 6.7 Ohms, 5.5 W resistors were connected via a connection board. Assuming a motor current of 1.2 A we need ~ 10 W resistors and these are getting somewhat too hot. 
 5. The stepper motors were connected to the Gertbot as illustrated in the figures below!
-6. Important convention: Red wire connected to A1 and striped red wire to A2, red wire connected to B1 and striped green wire to B2. Correspondingly for 2nd connected stepper motor. Important since this determines the polarity of rotation.
+6. Important convention: Green wire connected to A1 and striped green wire to A2, red wire connected to B1 and striped red wire to B2. Correspondingly for 2nd connected stepper motor. Important since this determines the polarity of rotation and this way it is congruent with +=going away from motor housing.
 
 ![Stepper motor connection](/home/anton/Pictures/DocumentationScanningSystem/20170512_161630.jpg)
 
@@ -136,5 +136,31 @@ Configuring _Lundiumberry_ with Gertbot:
 
 ### Activating end-stops ###
 
+The following fork couplers were purchased:
+
+5 st (OPB990T51Z): <https://www.elfa.se/sv/laesgaffel-18-mm-40-ma-30-ma-40-70-optek-opb990t51z/p/30009110?channel=b2b&price_afd=48.2&gclid=CjwKEAjwja_JBRD8idHpxaz0t3wSJAB4rXW5Xf4yJTT7-mz6sqe7KDXiuYXHgO5Zg-5TWpgMcBwXPRoCjnLw_wcB>
+
+_Documentation_: <https://www.elfa.se/Web/Downloads/_t/ds/OPB960-990-series_eng_tds.pdf?mime=application%2Fpdf>
+
+Wires: 
+
+* Red - anode (diode)
+* Black - cathode (diode)
+* White - V_CC (phototransistor)
+* Blue - Output (phototransistor)
+* Green - Ground (phototransistor)
+
+If only one sensor is connected then this limiting resistor should be sufficient:
+
+** 330 Ohms ** resistor -> Diode current ~ 24 mA
+
+** OBS **: Check the J3-pins (the ones to connect the sensor output to) in order to connect it properly.
+Be aware every stepper motor has two end-stops: _A_ and _B_. The B is the upper most pin (in the config. in the figures).
+Each end-stop is configured for a specific polarity of the stepper motor rotation (A=+ and B=-).
+
+If the GUI is used for testing the end-stops you might run into trouble when it is activated. 
+The _Gertbot_ is programmed to change to `Step Gray PWR` mode when the end-stop is active. 
+This has been circumvented in the `.py` script where the mode is reset if such an event would occur. 
+In the script the motor status is checked in order to disentangle if an error (end-stop) is apparent.
 
 
