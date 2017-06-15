@@ -75,7 +75,7 @@ The following has been measured (photo also exists):
 	* Wagon: 4 st; M5x0.8
 	* Thickness collimator arm = 10 mm
 
-		* Final: M5x18 + plate M5. 
+		* Final: M5x18 + plate M5 + plate M5 underneath the arm (!) for the two back screws. (Perhaps the machine drill bent it? :( ) 
 	
 Remarks: Sadly no plates matches the space for the screw heads on the base of the linear units, unclear why this construction. 
 
@@ -164,3 +164,12 @@ This has been circumvented in the `.py` script where the mode is reset if such a
 In the script the motor status is checked in order to disentangle if an error (end-stop) is apparent.
 
 
+
+## Installation of Lundium PC ##
+The detailed connections of the stepper motor wires to the Gertbot and endstops to the Gertbot see above section. 
+Here goes the fine tune cableing to set up the _Lundium PC_, which is the box with cables that goes to and from the raspberry pie, Gertbot and the power supplies. 
+See figure. 
+
+** Stepper motors -> dsub 9 **: Green -> 1, striped green -> 2, red -> 3 and striped red -> 4.
+
+** Sensors -> dsub 25 **: Red -> 1, black -> 2, white -> 3, blue -> 4 and green -> 5. This pattern continued for all 4 sensors.
