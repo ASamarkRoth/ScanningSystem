@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.26)  5 JUN 2017 15:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.26)  13 JUN 2017 19:40
 entering extended mode
 **./First_measurements.tex
 (First_measurements.tex
@@ -607,78 +607,178 @@ G,.JBIG2,.JB2,.eps]
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<New_setup_back.jpg, id=1, 2569.6pt x 1003.75pt>
-File: New_setup_back.jpg Graphic file (type jpg)
- <use New_setup_back.jpg>
-Package pdftex.def Info: New_setup_back.jpg used on input line 26.
-(pdftex.def)             Requested size: 385.42337pt x 150.556pt.
-
-<New_setup_front.jpg, id=2, 2569.6pt x 1301.86375pt>
-File: New_setup_front.jpg Graphic file (type jpg)
- <use New_setup_front.jpg>
-Package pdftex.def Info: New_setup_front.jpg used on input line 33.
-(pdftex.def)             Requested size: 385.42337pt x 195.27113pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 40.
-
+LaTeX Font Info:    Try loading font information for U+msa on input line 47.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 40.
+LaTeX Font Info:    Try loading font information for U+msb on input line 47.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+<Logo.png, id=1, 290.2845pt x 182.48175pt>
+File: Logo.png Graphic file (type png)
+ <use Logo.png>
+Package pdftex.def Info: Logo.png used on input line 73.
+(pdftex.def)             Requested size: 174.17203pt x 109.48988pt.
+ [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./New_setup_back.jpg> <./
-New_setup_front.jpg>] <Scan_Cos_2.png, id=10, 726.3135pt x 311.36325pt>
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./Logo.png>] (First_measu
+rements.toc)
+\tf@toc=\write3
+\openout3 = `First_measurements.toc'.
+
+
+[1] <Nuclchart2.png, id=20, 751.608pt x 514.92375pt>
+File: Nuclchart2.png Graphic file (type png)
+ <use Nuclchart2.png>
+Package pdftex.def Info: Nuclchart2.png used on input line 101.
+(pdftex.def)             Requested size: 450.96828pt x 308.95662pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[2] [3 <./Nuclchart2.png>]
+
+LaTeX Warning: Reference `geo' on page 4 undefined on input line 119.
+
+<resolution.png, id=32, 329.43076pt x 271.0125pt>
+File: resolution.png Graphic file (type png)
+ <use resolution.png>
+Package pdftex.def Info: resolution.png used on input line 138.
+(pdftex.def)             Requested size: 296.48494pt x 243.90898pt.
+ [4]
+[5 <./resolution.png>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 163.
+
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 163.
+ [6]
+<final_setup.png, id=48, 1927.2pt x 1084.05pt>
+File: final_setup.png Graphic file (type png)
+ <use final_setup.png>
+Package pdftex.def Info: final_setup.png used on input line 184.
+(pdftex.def)             Requested size: 385.43318pt x 216.80615pt.
+
+<coincidence.png, id=49, 1394.811pt x 537.207pt>
+File: coincidence.png Graphic file (type png)
+ <use coincidence.png>
+Package pdftex.def Info: coincidence.png used on input line 195.
+(pdftex.def)             Requested size: 418.44653pt x 161.16335pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[7 <./final_setup.png>] <table.png, id=54, 601.64775pt x 567.92175pt>
+File: table.png Graphic file (type png)
+
+<use table.png>
+Package pdftex.def Info: table.png used on input line 210.
+(pdftex.def)             Requested size: 300.82314pt x 283.96017pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8 <./coincidence.png>] <position.png, id=59, 707.64375pt x 473.97075pt>
+File: position.png Graphic file (type png)
+
+<use position.png>
+Package pdftex.def Info: position.png used on input line 225.
+(pdftex.def)             Requested size: 283.05249pt x 189.58493pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Arm.png, id=60, 632.3625pt x 402.303pt>
+File: Arm.png Graphic file (type png)
+ <use Arm.png>
+Package pdftex.def Info: Arm.png used on input line 232.
+(pdftex.def)             Requested size: 252.94052pt x 160.91833pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[9 <./table.png>] <New_setup_back.jpg, id=65, 2569.6pt x 1003.75pt>
+File: New_setup_back.jpg Graphic file (type jpg)
+
+<use New_setup_back.jpg>
+Package pdftex.def Info: New_setup_back.jpg used on input line 251.
+(pdftex.def)             Requested size: 385.42337pt x 150.556pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<New_setup_front.jpg, id=66, 2569.6pt x 1301.86375pt>
+File: New_setup_front.jpg Graphic file (type jpg)
+
+<use New_setup_front.jpg>
+Package pdftex.def Info: New_setup_front.jpg used on input line 258.
+(pdftex.def)             Requested size: 385.42337pt x 195.27113pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[10 <./position.png> <./Arm.png>] [11 <./New_setup_back.jpg> <./New_setup_front
+.jpg>] <Scan_Cos_2.png, id=75, 726.3135pt x 311.36325pt>
 File: Scan_Cos_2.png Graphic file (type png)
-
-<use Scan_Cos_2.png>
-Package pdftex.def Info: Scan_Cos_2.png used on input line 61.
+ <use Scan_Cos_2.png>
+Package pdftex.def Info: Scan_Cos_2.png used on input line 286.
 (pdftex.def)             Requested size: 435.79147pt x 186.81938pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[2] <result_2.png, id=22, 702.82574pt x 89.73524pt>
+[12 <./Scan_Cos_2.png>] <result_2.png, id=81, 702.82574pt x 89.73524pt>
 File: result_2.png Graphic file (type png)
- <use result_2.png>
-Package pdftex.def Info: result_2.png used on input line 78.
+
+<use result_2.png>
+Package pdftex.def Info: result_2.png used on input line 303.
 (pdftex.def)             Requested size: 421.6987pt x 53.84154pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[3 <./Scan_Cos_2.png>] <shape.png, id=27, 414.348pt x 82.50826pt>
+ [13 <./result_2.png>]
+<shape.png, id=86, 414.348pt x 82.50826pt>
 File: shape.png Graphic file (type png)
-
-<use shape.png>
-Package pdftex.def Info: shape.png used on input line 88.
+ <use shape.png>
+Package pdftex.def Info: shape.png used on input line 313.
 (pdftex.def)             Requested size: 290.04161pt x 57.75537pt.
- [4 <./result_2.png> <./shape.png>] (First_measurements.aux) ) 
+ [14 <./shape.png>]
+(First_measurements.bbl) [15] (First_measurements.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3897 strings out of 493335
- 49646 string characters out of 3136680
- 126314 words of memory out of 3000000
- 7331 multiletter control sequences out of 15000+200000
- 17408 words of font info for 50 fonts, out of 3000000 for 9000
+ 3997 strings out of 493335
+ 51043 string characters out of 3136680
+ 126457 words of memory out of 3000000
+ 7407 multiletter control sequences out of 15000+200000
+ 23032 words of font info for 58 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,8n,25p,1679b,231s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\gtoca\
-AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0900.pk> <C:\Us
-ers\gtoca\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0600.
+ 40i,8n,25p,1679b,289s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
+ecti1095.pk> <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
+ec\dpi600\ecrm0900.pk> <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
+\jknappen\ec\dpi600\ecrm0600.pk> <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\fonts
+\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\gtoca\AppData\Local\MiKTeX
+\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\gtoca\AppData\Lo
+cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <C:\Users\gtoca\
+AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Us
+ers\gtoca\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.
 pk> <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
-\ecbx1095.pk> <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen
-\ec\dpi600\ecrm0800.pk> <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
-r\jknappen\ec\dpi600\ecrm1095.pk> <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\font
-s\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\gtoca\AppData\Local\MiKTe
-X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk><C:/Program Files (x86)/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on First_measurements.pdf (4 pages, 1420167 bytes).
+\eccc1200.pk> <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen
+\ec\dpi600\ecrm1200.pk> <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
+r\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\gtoca\AppData\Local\MiKTeX\2.9\font
+s\pk\ljfour\jknappen\ec\dpi600\ecbx2074.pk> <C:\Users\gtoca\AppData\Local\MiKTe
+X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1440.pk> <C:\Users\gtoca\AppData\L
+ocal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1728.pk><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files 
+(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on First_measurements.pdf (16 pages, 2721944 bytes).
 PDF statistics:
- 214 PDF objects out of 1000 (max. 8388607)
+ 518 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
