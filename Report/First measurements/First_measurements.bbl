@@ -1,15 +1,23 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{Sobi}
+A.~Sobiczewski, F.A. Gareev, and B.N. Kalinkin.
+\newblock Closed shells for $z > 82$ and $n > 126$ in a diffuse potential well.
+\newblock {\em Physics Letters}, 1966.
+
+\bibitem{Matti}
+John~Matti Nieminen.
+\newblock {\em Superdeformation~: a tool to study fusion-evaporation
+  reactions}.
+\newblock PhD thesis, School of Graduate Studies, 1998.
+
+\bibitem{Thoen}
+Michael Thoennessen.
+\newblock {\em The discovery of isotopes, a complete compilation}.
+\newblock Springer, 2016.
 
 \bibitem{element115}
-D.~Rudolph, U.~Forsberg, P.~Golubev, L.~G. Sarmiento, A.~Yakushev, L.-L.
-  Andersson, A.~Di Nitto, Ch.~E. D\"ullmann, J.~M. Gates, K.~E. Gregorich,
-  C.~J. Gross, F.~P. HeSSberger, R.-D. Herzberg, J.~Khuyagbaatar, J.V. Kratz,
-  K.~Rykaczewski, M.~Schädel, S.~\r{A}berg, D.~Ackermann, M.~Block, H.~Brand,
-  B.~G. Carlsson, D.~Cox, X.~Derkx, K.~Eberhardt, J.~Even, C.~Fahlander,
-  J.~Gerl, E.~J\"ager, B.~Kindler, J.~Krier, I.~Kojouharov, N.~Kurz, B.~Lommel,
-  A.~Mistry, C.~Mokry, H.~Nitsche, J.~P. Omtvedt, P.~Papadakis, I.~Ragnarsson,
-  J.~Runke, H.~Schaffner, B.~Schausten, P.~Th\"orle-Pospiech, T.~Torres,
-  T.~Traut, N.~Trautmann, A.~T\"urler, A.~Ward, D.~E. Ward, , and N.~Wieh.
+D.~Rudolph et. al.
 \newblock Spectroscopy of element 115 decay chains.
 \newblock {\em Physical review letters III}, 2013.
 
@@ -26,6 +34,19 @@ William~R. Leo.
 \newblock {\em Techniques for nuclear and particle physics experiments}.
 \newblock 1999.
 
+\bibitem{Napoli}
+D.R. Napoli, G.~Maggioni, S.~Carturan, J.~Eberth, M.~Gelain, M.G. Grimaldi,
+  S.~Tati, S.~Riccetto, and G.~Della Mea.
+\newblock Germanium detectors for nuclear spectroscopy~: current research and
+  development activity at lnl.
+
+\bibitem{Xie}
+Changkun Xie, K.~Michael Yocum, James~F. Colaresi, and Harry~S. Miley.
+\newblock Surface passivation of high purity germanium detectors using
+  amorphous hydrogenated silicon films.
+\newblock {\em Monitoring Research Review: Ground-Based Nuclear Explosion
+  Monitoring Technologies}, 2010.
+
 \bibitem{Knoll}
 Glenn~F. Knoll.
 \newblock {\em Radiation Detection and Measurement}.
@@ -36,13 +57,6 @@ Nicholas Tsoulfanidis.
 \newblock {\em Measurement and detection of radiation}.
 \newblock Taylor \& Francis, 1995.
 
-\bibitem{Yii}
-Yii Mei-Wo.
-\newblock Determination performance of gamma spectrometry co-axial hpge
-  detector in radiochemistry and environment group.
-\newblock In {\em Nuclear Malaysia. R \& D Seminar 2014: Research and
-  Development Seminar 2014, Malaysia}.
-
 \bibitem{Kephart}
 Jeremy~D. Kephart.
 \newblock Method of evaluating the effect of hpge design on the sensitivity of
@@ -50,11 +64,12 @@ Jeremy~D. Kephart.
 \newblock Master's thesis, Graduate Faculty of North Carolina State University,
   2009.
 
+\bibitem{ortec}
+ORTEC.
+\newblock {\em Review of the Physics of Semiconductor Detectors}.
+
 \bibitem{LYCCA}
-Golubev Pavel, Wendt A., Scruton L., Taprogge J., Rudolph Dirk, Reiter P.,
-  Bentley~M. A., Avdeichikov Vladimir, Boutachkov P., Fox~S. P., Gerl J.,
-  Goergen Ch., Hoischen Robert, Kurz N., Singh B.~S. Nara, Pascovici G., Pietri
-  S., Schaffner H., Taylor~M. J., Thiel S., and Wollersheim~H. J.
+P.~Golubev et. al.
 \newblock The lund-york-cologne calorimeter (lycca): Concept, design and
   prototype developments for a fair-nustar detector system to discriminate
   relativistic heavy-ion reaction products.
@@ -62,6 +77,25 @@ Golubev Pavel, Wendt A., Scruton L., Taprogge J., Rudolph Dirk, Reiter P.,
   Accelerators, Spectrometers, Detectors, and Associated Equipment}, 2013.
 
 \bibitem{lit}
-National nuclear data center.
+National nuclear~data center.
+\newblock http://www.nndc.bnl.gov/.
+
+\bibitem{Trammell}
+R.~Trammell and F.J. Walter.
+\newblock The effects of carrier trapping in semiconductor gamma-ray
+  spectrometers.
+\newblock {\em Nuclear Instruments and Methods}, 1969.
+
+\bibitem{Martini}
+M.~Martini and T.A. McMath.
+\newblock Trapping and detrapping effects in lithium-drifted germanium and
+  silicon detectors.
+\newblock {\em Nuclear Instruments and Methods}, 1969.
+
+\bibitem{Raudorf}
+Thomas~W. Raudorf and Richard~H. Pehl.
+\newblock Effect of charge carrier trapping on germanium coaxial detector line
+  shapes.
+\newblock {\em Nuclear Instruments and Methods in Physics Research}, 1986.
 
 \end{thebibliography}
