@@ -10,10 +10,12 @@ import argparse
 
 parser = argparse.ArgumentParser("Specify how many steps that should be taken in as: 'steps_x steps_y'")
 parser.add_argument("-step", dest='steps', type=int, help="steps_x steps_y", nargs=2)
-parser.add_argument("-N", dest='new_xy', nargs=2, help="Start a new run from scratch with new coordinates.")
-parser.add_argument("-new", dest='restart', action="store_true", help="Start a new run from scratch with new coordinates.")
-parser.add_argument("-xy", dest='xy', nargs=2, help="Provide the new coordinates as: 'x y'")
+parser.add_argument("-N", dest='new_xy', nargs=2, help="Start a new run from scratch with new origin.")
+parser.add_argument("-new", dest='restart', action="store_true", help="Start a new run from scratch with origin the same last saved.")
+parser.add_argument("-xy", dest='xy', nargs=2, help="Provide the new coordinates as: 'x y' (mm)")
+parser.add_argument("-file_xy", dest='file_xy', nargs=1, help="Provide the file name from which the position data is to be read from.")
 args = parser.parse_args()
+
 if len(sys.argv)==1:
 	parser.print_help()
 	sys.exit(1)
@@ -22,18 +24,29 @@ print("args = ", args)
 
 if args.restart: 
 	print("Restarting the analysis with start coordinates as the last ones in \".positions.xy\"")	
+	x, y = sh.get_coords()
+	sh.deleteContent('move_data/.positions.xy')
+	sh.set_coords(x,y)
 	sys.exit()
 
 elif args.new_xy != None: 
-	print("Setting up .positions.xy")
-	#sh.deleteContent('move_data/.positions.xy')
+	sh.deleteContent('move_data/.positions.xy')
+	sh.set_coords(float(args.new_xy[0]), float(args.new_xy[1]))
+	print("The data has been reset and the new origin has been successfully added to \".positions.xy\"")
 	sys.exit()
 
 elif args.steps:
 	steps_x = args.steps[0]
 	steps_y = args.steps[1]
+
 elif args.xy:
-	steps_x, steps_y = sh.pos_eval(args.xy[0], args.xy[1])
+	steps_x, steps_y = sh.pos_eval(float(args.xy[0]), float(args.xy[1]))
+	print("Invoking step:", steps_x, steps_y)
+
+elif args.file_xy:
+	print("Reading coordinates from file ... (SHOULD BE IMPLEMENTED?)")
+	sys.exit()
+
 
 print("Stepping [x, y]: [", steps_x,", ",steps_y,"]")
 
