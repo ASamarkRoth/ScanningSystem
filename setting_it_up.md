@@ -113,16 +113,23 @@ Remarks: Sadly no plates matches the space for the screw heads on the base of th
 3. The Gertbot controller requires at least 8 V (8-18 V is recommended, see gertbot.com) to function. This has the consequence that it is necessary to connect a resistor in series with the phase of the stepper motors. A 15 V nominal input voltage was chosen which implies 6 Ohms resistors. 
 4. 6.7 Ohms, 5.5 W resistors were connected via a connection board. Assuming a motor current of 1.2 A we need ~ 10 W resistors and these are getting somewhat too hot. 
 5. The stepper motors were connected to the Gertbot as illustrated in the figures below!
+
 ### Important convention ###
 
 * Green wire connected to A1 and striped green wire to A2, red wire connected to B1 and striped red wire to B2. Correspondingly for 2nd connected stepper motor. Important since this determines the polarity of rotation and this way it is congruent with +=going away from motor housing.
-* The bottom stepper motor (running the KK50, i.e. the smallest) should be connected to the first 2 gates of the Gertbot. This means the 6 pin contacts closes to the long side of the gertbot. In the end this convention rules which stepper motor (#0 and #2 in the GUI) is called what in the program and that the end-stop is activated for the correct stepper motor+direction. 
+* The bottom stepper motor (running the KK50, i.e. the smallest) should be connected to the first 2 gates of the Gertbot. 
+This means the 6 pin contacts closes to the long side of the gertbot. 
+In the end this convention rules which stepper motor (#0 and #2 in the GUI) is called what in the program and that the end-stop is activated for the correct stepper motor+direction. 
+* The motors are referred to `STEPPER_X` and `STEPPER_Y` where the view of reference is: the wagons are as close as possible to the motor housing and one looks in the direction of the bottom linear unit. 
+This position can be referred to the motor origin. 
+Hence, `STEPPER_X = Top-motor (KK60)` and `STEPPER_Y = bottom-motor (KK50)`. 
+This is especially used in the stepper software but also in the cableing of the ScanningComputer.
 
 ![Stepper motor connection](/home/anton/Pictures/DocumentationScanningSystem/20170512_161630.jpg)
 
 ![Stepper motor connection (close up)](/home/anton/Pictures/DocumentationScanningSystem/20170512_161651.jpg)
 
-Configuring _Lundiumberry_ with Gertbot: 
+### Configuring _Lundiumberry_ with Gertbot ### 
 
 1. From <https://www.gertbot.com/download.html> download: 
 
@@ -155,9 +162,9 @@ Wires:
 
 If only one sensor is connected then this limiting resistor should be sufficient:
 
-** 330 Ohms ** resistor -> Diode current ~ 24 mA
+**330 Ohms ** resistor -> Diode current ~ 24 mA
 
-** OBS **: Check the J3-pins (the ones to connect the sensor output to) in order to connect it properly.
+**OBS **: Check the J3-pins (the ones to connect the sensor output to) in order to connect it properly.
 Be aware every stepper motor has two end-stops: _A_ and _B_. The B is the upper most pin (in the config. in the figures).
 Each end-stop is configured for a specific polarity of the stepper motor rotation (A=+ and B=-).
 
@@ -168,11 +175,52 @@ In the script the motor status is checked in order to disentangle if an error (e
 
 
 
-## Installation of Lundium PC ##
+## Installation of ScanningComputer ##
+
 The detailed connections of the stepper motor wires to the Gertbot and endstops to the Gertbot see above section. 
-Here goes the fine tune cableing to set up the _Lundium PC_, which is the box with cables that goes to and from the raspberry pie, Gertbot and the power supplies. 
+Here goes the fine tune cableing to set up the _ScanningComputer_, which is the box with cables that goes to and from the raspberry pie, Gertbot and the power supplies. 
 See figure. 
+
+![ScanningComputer](/home/anton/Pictures/DocumentationScanningSystem/20170619_104812.jpg)
 
 ** Stepper motors -> dsub 9 **: Green -> 1, striped green -> 2, red -> 3 and striped red -> 4.
 
-** Sensors -> dsub 25 **: Red -> 1, black -> 2, white -> 3, blue -> 4 and green -> 5. This pattern continued for all 4 sensors.
+** Sensors -> dsub 25 **: Red -> 1, black -> 2, white -> 3, blue -> 4 and green -> 5. 
+This pattern continued for all 4 sensors. 
+Further the following was connected:
+
+1. _X0_-> 1-5
+2. _XMAX_-> 6-10
+3. _Y0_-> 11-15
+4. _YMAX_-> 16-20
+
+Here _(X0, Y0)_ is referred to the sensor activated when the origin (see earlier discussion) has been reached. 
+_(XMAX, YMAX)_ is referred to the sensor activated when the maximum dislocation, with respect to the motor housing, is reached. 
+
+## Software control ## 
+
+The control software has been implemented in `cd ScanningSystem/atlundiumberry`. 
+The program is run with: `python3 move_collimator.py`. 
+If no command line options are provided a substantial help information is given. 
+
+Code documentation can to a large extent be found in the source files. 
+The program enables: 
+
+**Usage**: 
+
+- Specify how many steps that should be taken in as: 'steps_x steps_y'
+- [-h] [-step STEPS STEPS] [-N NEW_XY NEW_XY] [-new] [-xy XY XY]
+- [-file_xy FILE_XY]
+
+**Optional arguments**:
+
+- -h, --help         show this help message and exit
+- -step STEPS STEPS  steps_x steps_y
+- -N NEW_XY NEW_XY   Start a new run from scratch with new origin.
+- -new               Start a new run from scratch with origin the same last saved.
+- -xy XY XY          Provide the new coordinates as: 'x y' (mm)
+- -file_xy FILE_XY   Provide the file name from which the position data is to
+                     be read from.
+
+
+
