@@ -113,7 +113,10 @@ Remarks: Sadly no plates matches the space for the screw heads on the base of th
 3. The Gertbot controller requires at least 8 V (8-18 V is recommended, see gertbot.com) to function. This has the consequence that it is necessary to connect a resistor in series with the phase of the stepper motors. A 15 V nominal input voltage was chosen which implies 6 Ohms resistors. 
 4. 6.7 Ohms, 5.5 W resistors were connected via a connection board. Assuming a motor current of 1.2 A we need ~ 10 W resistors and these are getting somewhat too hot. 
 5. The stepper motors were connected to the Gertbot as illustrated in the figures below!
-6. Important convention: Green wire connected to A1 and striped green wire to A2, red wire connected to B1 and striped red wire to B2. Correspondingly for 2nd connected stepper motor. Important since this determines the polarity of rotation and this way it is congruent with +=going away from motor housing.
+### Important convention ###
+
+* Green wire connected to A1 and striped green wire to A2, red wire connected to B1 and striped red wire to B2. Correspondingly for 2nd connected stepper motor. Important since this determines the polarity of rotation and this way it is congruent with +=going away from motor housing.
+* The bottom stepper motor (running the KK50, i.e. the smallest) should be connected to the first 2 gates of the Gertbot. This means the 6 pin contacts closes to the long side of the gertbot. In the end this convention rules which stepper motor (#0 and #2 in the GUI) is called what in the program and that the end-stop is activated for the correct stepper motor+direction. 
 
 ![Stepper motor connection](/home/anton/Pictures/DocumentationScanningSystem/20170512_161630.jpg)
 
