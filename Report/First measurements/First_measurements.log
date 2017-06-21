@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.26)  21 JUN 2017 14:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.26)  21 JUN 2017 19:20
 entering extended mode
 **./First_measurements.tex
 (First_measurements.tex
@@ -632,7 +632,7 @@ easurements.toc)
 [1] <Nuclchart2.png, id=23, 751.608pt x 514.92375pt>
 File: Nuclchart2.png Graphic file (type png)
  <use Nuclchart2.png>
-Package pdftex.def Info: Nuclchart2.png used on input line 112.
+Package pdftex.def Info: Nuclchart2.png used on input line 116.
 (pdftex.def)             Requested size: 450.96828pt x 308.95662pt.
 
 
@@ -644,33 +644,33 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: Crystal.png Graphic file (type png)
 
 <use Crystal.png>
-Package pdftex.def Info: Crystal.png used on input line 136.
+Package pdftex.def Info: Crystal.png used on input line 140.
 (pdftex.def)             Requested size: 415.30424pt x 157.7867pt.
  [4 <./Crystal.png>]
 <resolution.png, id=44, 329.43076pt x 271.0125pt>
 File: resolution.png Graphic file (type png)
  <use resolution.png>
-Package pdftex.def Info: resolution.png used on input line 158.
+Package pdftex.def Info: resolution.png used on input line 162.
 (pdftex.def)             Requested size: 296.48494pt x 243.90898pt.
  [5 <./resolution.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 183.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 187.
 
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 183.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 187.
 
 [6] <final_setup.png, id=54, 1927.2pt x 1084.05pt>
 File: final_setup.png Graphic file (type png)
  <use final_setup.png>
-Package pdftex.def Info: final_setup.png used on input line 204.
+Package pdftex.def Info: final_setup.png used on input line 208.
 (pdftex.def)             Requested size: 385.43318pt x 216.80615pt.
 
 <coincidence.png, id=55, 1394.811pt x 537.207pt>
 File: coincidence.png Graphic file (type png)
  <use coincidence.png>
-Package pdftex.def Info: coincidence.png used on input line 215.
+Package pdftex.def Info: coincidence.png used on input line 219.
 (pdftex.def)             Requested size: 418.44653pt x 161.16335pt.
 
 
@@ -680,7 +680,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: table.png Graphic file (type png)
 
 <use table.png>
-Package pdftex.def Info: table.png used on input line 228.
+Package pdftex.def Info: table.png used on input line 232.
 (pdftex.def)             Requested size: 300.82314pt x 283.96017pt.
 
 
@@ -690,7 +690,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: position.png Graphic file (type png)
 
 <use position.png>
-Package pdftex.def Info: position.png used on input line 243.
+Package pdftex.def Info: position.png used on input line 247.
 (pdftex.def)             Requested size: 283.05249pt x 189.58493pt.
 
 
@@ -699,7 +699,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <Arm.png, id=66, 632.3625pt x 402.303pt>
 File: Arm.png Graphic file (type png)
  <use Arm.png>
-Package pdftex.def Info: Arm.png used on input line 250.
+Package pdftex.def Info: Arm.png used on input line 254.
 (pdftex.def)             Requested size: 252.94052pt x 160.91833pt.
 
 
@@ -709,7 +709,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: New_setup_back.jpg Graphic file (type jpg)
 
 <use New_setup_back.jpg>
-Package pdftex.def Info: New_setup_back.jpg used on input line 269.
+Package pdftex.def Info: New_setup_back.jpg used on input line 273.
 (pdftex.def)             Requested size: 385.42337pt x 150.556pt.
 
 
@@ -719,7 +719,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: New_setup_front.jpg Graphic file (type jpg)
 
 <use New_setup_front.jpg>
-Package pdftex.def Info: New_setup_front.jpg used on input line 276.
+Package pdftex.def Info: New_setup_front.jpg used on input line 280.
 (pdftex.def)             Requested size: 385.42337pt x 195.27113pt.
 
 
@@ -733,7 +733,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [12]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 353.
+               Default added (so using `tbp') on input line 357.
 
 [13] [14] [15] (First_measurements.bbl) [16] (First_measurements.aux) ) 
 Here is how much of TeX's memory you used:
@@ -767,7 +767,7 @@ eX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x86)/MiKTeX
 /fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on First_measurements.pdf (18 pages, 2701718 bytes).
+Output written on First_measurements.pdf (18 pages, 2701585 bytes).
 PDF statistics:
  523 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
