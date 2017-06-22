@@ -1,6 +1,7 @@
-pos 2.000 2.000
+pos 40.000 40.000
 freq 50
 limits -10 60 -10 60
 is_file 0
 read_file test
-is_power_com 1
+is_power_com 0
+

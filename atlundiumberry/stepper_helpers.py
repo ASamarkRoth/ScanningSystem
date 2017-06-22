@@ -16,7 +16,7 @@ settings_file = '.scanning.xy'
 
 def pos_eval(new_x, new_y):
     x, y = get_coords()
-    limits = read_value("limits")
+    limits = list(map(float, read_value("limits")))
     print("Current position is:", x, y)
     step_length_y = (1.8/360)*2
     step_length_x = (1.8/360)*5
@@ -26,7 +26,7 @@ def pos_eval(new_x, new_y):
     new_x = new_steps_x*step_length_x + x
     new_y = "{0:.3f}".format(round(new_y,3))
     new_x = "{0:.3f}".format(round(new_x,3))
-    if new_x < limits[0] or new_x > limits[1] or new_y < limits[0] or new_y > limits[1]:
+    if float(new_x) < limits[0] or float(new_x) > limits[1] or float(new_y) < limits[2] or float(new_y) > limits[3]:
         print("ERROR: Tried to move out of set boundary. No stepping is executed and exiting ...")
         sys.exit(2);
     print("New position is:", new_x, new_y)

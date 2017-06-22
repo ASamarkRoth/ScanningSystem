@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-
 import stepper_helpers as sh
 
 import os
@@ -17,7 +16,7 @@ parser.add_argument("-set_limits", dest='limits', nargs=4, help="Set boundary li
 parser.add_argument("-swipe_file", dest='swipe', nargs=7, help="Generate a file with coordinates to perform an (x0-x1, y0-y1) with step lengths (dx, dy) swipe scan. As: 'file_name x0 x1 dx y0 y1 dy'. Neglect file ending.")
 parser.add_argument("-file_xy", dest='file_xy', nargs=1, help="Provide the file name from which the position data is to be read from. If file is set then every time the program is executed the collimator will move to the positions indicated in the file. A temporary file temp.'file name'.scan is deleted if the scan is completed.")
 parser.add_argument("-set_freq", dest='freq', nargs=1, help="Set freq as: 'new_freq' (Hz)")
-parser.add_argument("-set_defaults", dest='defs', action="store_true", help="Reset default settings, i.e. frequency and limits.")
+parser.add_argument("-set_defaults", dest='defs', action="store_true", help="Reset default settings.")
 parser.add_argument("-set_power_com", dest='tdk', action="store_true", help="Set up the power supply communication (tdk-lambda Gen 50-30). OBS: this activates automatic power ON/OFF over the operation.")
 parser.add_argument("-no_power_com", dest='no_tdk', action="store_true", help="Inactivate automatic power supply communication and power ON/OFF during operation.")
 parser.add_argument("-v", dest='view', action="store_true", help="View current settings.")
@@ -69,7 +68,7 @@ if args.defs:
     sh.set_value("freq", ['50'])
     sh.set_value("limits", ['-10','60','-10','60'])
     sh.set_value("is_file", ['0'])
-    sh.set_value("is_power", ['0'])
+    sh.set_value("is_power_com", ['0'])
 
 if args.swipe:
     print("Generating swipe file:", args.swipe[0]+".scan")
@@ -100,6 +99,7 @@ elif args.steps:
 
 elif args.xy:
     steps_x, steps_y = sh.pos_eval(float(args.xy[0]), float(args.xy[1]))
+    print("Stepping [x, y]: [", steps_x,", ",steps_y,"]")
 
 if steps_x == 0 and steps_y == 0: 
     print("Exiting since no steps set")
