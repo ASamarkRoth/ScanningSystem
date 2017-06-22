@@ -10,6 +10,7 @@ Step-accuracy: +- 0.05 deg (rotarystepper catalogue)
 """
 import sys
 import numpy as np
+import os
 
 settings_file = '.scanning.xy'
 
@@ -57,6 +58,12 @@ def set_coords(x, y):
         content[0] = line
         f.seek(0, 0)
         f.writelines(content)
+
+def set_power(s):
+    print("Executing: ", "./power_setup.sh cmd "+s)
+    os.system("./power_set.sh cmd "+s)
+    os.system(s +" >> power.log")
+
 
 def read_value(s):
     with open(settings_file, 'r') as f:

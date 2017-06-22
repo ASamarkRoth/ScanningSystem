@@ -57,7 +57,9 @@ _Setting baud rate:_ `stty -F /dev/ttyS0 9600`
 3. `stty -F /dev/ttyUSB2 9600 cs8 -cstopb -parenb -echo` - Setting up TDK-Lambda communication protocol (see below). `-echo` is needed @lundiumberry since otherwise the machine tries to read commands all the time. 
 4. Open two terminal tabs and read in one and write in the other:
 5. _Read_: `cat < /dev/ttyUSB2`
-5. _Write_: `echo -ne 'OUT 1\r' > /dev/ttyUSB2` where `\r = \015` mirrors the user hitting _enter_.
+5. _Write_: `echo -ne 'OUT 1\015' > /dev/ttyUSB2` where `\015` mirrors the user hitting _enter_.
+
+* `stty -a -F /dev/ttyUSB0` outputs current device settings (check for the ones given in point 3). 
 
 _According to manual_:
 

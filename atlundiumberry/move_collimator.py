@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 import stepper_helpers as sh
 
 import os
@@ -17,6 +18,9 @@ parser.add_argument("-swipe_file", dest='swipe', nargs=7, help="Generate a file 
 parser.add_argument("-file_xy", dest='file_xy', nargs=1, help="Provide the file name from which the position data is to be read from. If file is set then every time the program is executed the collimator will move to the positions indicated in the file. A temporary file temp.'file name'.scan is deleted if the scan is completed.")
 parser.add_argument("-set_freq", dest='freq', nargs=1, help="Set freq as: 'new_freq' (Hz)")
 parser.add_argument("-set_defaults", dest='defs', action="store_true", help="Reset default settings, i.e. frequency and limits.")
+parser.add_argument("-set_power_com", dest='tdk', action="store_true", help="Set up the power supply communication (tdk-lambda Gen 50-30). OBS: this activates automatic power ON/OFF over the operation.")
+parser.add_argument("-no_power_com", dest='no_tdk', action="store_true", help="Inactivate automatic power supply communication and power ON/OFF during operation.")
+parser.add_argument("-v", dest='view', action="store_true", help="View current settings.")
 args = parser.parse_args()
 
 steps_x = 0
@@ -37,6 +41,21 @@ if len(sys.argv)==1:
 
 print("args = ", args)
 
+if args.tdk:
+    print("Setting up power supply communication ")
+    os.system("echo 'Setting up tdk-lambda'")
+    os.system("./power_set.sh setup")
+    sh.set_value("is_power_com", '1')
+
+if args.no_tdk:
+    print("Inactivating power supply communication ")
+    sh.set_value("is_power_com", '0')
+
+if args.view:
+    print("\nCurrent settings are:")
+    os.system("cat .scanning.xy")
+    print("")
+
 if args.limits:
     print("Setting limits to: ", args.limits)
     sh.set_value("limits", args.limits)
@@ -49,6 +68,8 @@ if args.defs:
     print("Setting defaults")
     sh.set_value("freq", ['50'])
     sh.set_value("limits", ['-10','60','-10','60'])
+    sh.set_value("is_file", ['0'])
+    sh.set_value("is_power", ['0'])
 
 if args.swipe:
     print("Generating swipe file:", args.swipe[0]+".scan")
@@ -131,6 +152,10 @@ gb.freq_stepper(BOARD,STEPPER_X,FREQ)
 # Setting active-low endstop for direction B, OFF for dir A. 
 #gb.set_endstop(BOARD, STEPPER_Y, gb.ENDSTOP_OFF, gb.ENDSTOP_LOW)
 
+if int(sh.read_value("is_power_com")[0]):
+    print("Activating power")
+    sh.set_power("OUT 1")
+    time.sleep(2) #this is to ensure power is on
 
 # DO THE ACTUAL MOVE
 print("Invoking move ...")
@@ -169,6 +194,10 @@ else:
 
 # Added this to avoid motor going into pwr state after end-stop activation.
 gb.set_mode(BOARD,STEPPER_X,MODE)
+
+if int(sh.read_value("is_power_com")[0]):
+    print("Deactivating power")
+    sh.set_power("OUT 0")
 
 # on exit stop everything
 #gb.emergency_stop()
