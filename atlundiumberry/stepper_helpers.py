@@ -9,7 +9,7 @@ Step-accuracy: +- 0.05 deg (rotarystepper catalogue)
 
 """
 
-coords_file = 'move_data/.positions.xy'
+settings_file = '.scanning.xy'
 
 def pos_eval(new_x, new_y):
 	x, y = get_coords()
@@ -27,16 +27,17 @@ def pos_eval(new_x, new_y):
 	return new_steps_x, new_steps_y
 
 def get_coords(): 
-	with open(coords_file, 'r') as f:
-		x, y = map(float, f.readline().split())
+	with open(settings_file, 'r') as f:
+		s, x, y = map(float, f.readline().split())
 	return x, y
 
 def set_coords(x, y): 
-	with open(coords_file, 'r+') as f:
-		line = str(x)+" "+str(y);
-		content = f.read()
-		f.seek(0, 0)
-		f.write(line.rstrip('\r\n') + '\n' + content)
+	with open(settings_file, 'r+') as f:
+		line = "pos"+str(x)+" "+str(y)+"\n";
+		content = f.readlines()
+                content[0] = line
+		#f.seek(0, 0)
+		f.writelines(content)
 
 def line_prepender(filename, line):
 	with open(filename, 'r+') as f:
