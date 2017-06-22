@@ -1,7 +1,4 @@
-#################################################################
-#  stepper.py - Stepper motor control using Gertbot and Python  #
-#  Based on Gertbot example code at http://www.gertbot.com/     #
-#################################################################
+#!/usr/bin/python3
 
 import stepper_helpers as sh
 
