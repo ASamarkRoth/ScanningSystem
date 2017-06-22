@@ -5,8 +5,10 @@
 
 import stepper_helpers as sh
 
+import os
 import sys
 import argparse
+import shutil
 
 parser = argparse.ArgumentParser("Specify how many steps that should be taken in as: 'steps_x steps_y'")
 parser.add_argument("-step", dest='steps', type=int, help="steps_x steps_y", nargs=2)
@@ -14,42 +16,75 @@ parser.add_argument("-N", dest='new_xy', nargs=2, help="Start a new run from scr
 parser.add_argument("-new", dest='restart', action="store_true", help="Start a new run from scratch with origin the same last saved.")
 parser.add_argument("-xy", dest='xy', nargs=2, help="Provide the new coordinates as: 'x y' (mm)")
 parser.add_argument("-set_limits", dest='limits', nargs=4, help="Set boundary limits of the current coordinate system: 'x_low x_high y_low y_high' (mm)")
-parser.add_argument("-file_xy", dest='file_xy', nargs=1, help="Provide the file name from which the position data is to be read from.")
+parser.add_argument("-swipe_file", dest='swipe', nargs=7, help="Generate a file with coordinates to perform an (x0-x1, y0-y1) with step lengths (dx, dy) swipe scan. As: 'file_name x0 x1 dx y0 y1 dy'. Neglect file ending.")
+parser.add_argument("-file_xy", dest='file_xy', nargs=1, help="Provide the file name from which the position data is to be read from. If file is set then every time the program is executed the collimator will move to the positions indicated in the file. A temporary file temp.'file name'.scan is deleted if the scan is completed.")
+parser.add_argument("-set_freq", dest='freq', nargs=1, help="Set freq as: 'new_freq' (Hz)")
+parser.add_argument("-set_defaults", dest='defs', action="store_true", help="Reset default settings, i.e. frequency and limits.")
 args = parser.parse_args()
 
+steps_x = 0
+steps_y = 0
+
 if len(sys.argv)==1:
-	parser.print_help()
-	sys.exit(1)
+    if int(sh.read_value("is_file")[0]):
+        x, y = sh.read_coords()
+        if x == None and y == None:
+            sh.set_value("is_file", '0')
+            os.remove("temp."+sh.read_value("read_file")[0]+".scan")
+            sys.exit()
+        steps_x, steps_y = sh.pos_eval(x, y)
+    else:
+        parser.print_help()
+        sh.set_value("is_file", '0')
+        sys.exit(1)
 
 print("args = ", args)
 
+if args.limits:
+    print("Setting limits to: ", args.limits)
+    sh.set_value("limits", args.limits)
+
+if args.freq:
+    print("Setting frequency to: ", args.freq)
+    sh.set_value("freq", args.freq)
+
+if args.defs:
+    print("Setting defaults")
+    sh.set_value("freq", ['50'])
+    sh.set_value("limits", ['-10','60','-10','60'])
+
+if args.swipe:
+    print("Generating swipe file:", args.swipe[0]+".scan")
+    sh.generate_swipe_file(args.swipe)
+
+if args.file_xy:
+    print("Setting file to read from:", args.file_xy)
+    sh.set_value("is_file", ['1'])
+    sh.set_value("read_file", args.file_xy)
+    shutil.copyfile(args.file_xy[0]+".scan", "temp."+args.file_xy[0]+".scan")
+
 if args.restart: 
-	print("Restarting the analysis with start coordinates as the last ones in \".positions.xy\"")	
-	x, y = sh.get_coords()
-	sh.deleteContent('move_data/.positions.xy')
-	sh.set_coords(x,y)
-	sys.exit()
+    print("Restarting the analysis with start coordinates as the last ones in \".positions.xy\"")	
+    x, y = sh.get_coords()
+    sh.deleteContent('move_data/.positions.xy')
+    sh.set_coords(x,y)
+    sys.exit()
 
 elif args.new_xy != None: 
-	sh.deleteContent('move_data/.positions.xy')
-	sh.set_coords(float(args.new_xy[0]), float(args.new_xy[1]))
-	print("The data has been reset and the new origin has been successfully added to \".positions.xy\"")
-	sys.exit()
+    sh.deleteContent('move_data/.positions.xy')
+    sh.set_coords(float(args.new_xy[0]), float(args.new_xy[1]))
+    print("The data has been reset and the new origin has been successfully added to \".positions.xy\"")
+    sys.exit()
 
 elif args.steps:
-	steps_x = args.steps[0]
-	steps_y = args.steps[1]
+    steps_x = args.steps[0]
+    steps_y = args.steps[1]
 
 elif args.xy:
-	steps_x, steps_y = sh.pos_eval(float(args.xy[0]), float(args.xy[1]))
-	print("Invoking step:", steps_x, steps_y)
+    steps_x, steps_y = sh.pos_eval(float(args.xy[0]), float(args.xy[1]))
 
-elif args.file_xy:
-	print("Reading coordinates from file ... (SHOULD BE IMPLEMENTED?)")
-	sys.exit()
-
-
-if not steps_x or not steps_y: 
+if steps_x == 0 and steps_y == 0: 
+    print("Exiting since no steps set")
     sys.exit()
 
 print("Stepping [x, y]: [", steps_x,", ",steps_y,"]")
@@ -74,7 +109,9 @@ MODE = gb.MODE_STEPG_OFF          # stepper control, gray code
 #         9=step pulse off 
 #        24=step gray powered
 #        25=step pulse powered
-FREQ = 50.0        # frequency
+FREQ = float(sh.read_value("freq")[0])        # frequency
+
+print("Set frequency is:", FREQ)
 
 # Main program
 
@@ -109,12 +146,12 @@ time.sleep(5)
 motor_status = gb.get_motor_status(BOARD, STEPPER_Y)
 print("Motor status Y: ", motor_status) 
 if steps_y != 0 and any(motor_status) != 0:
-	print("There was a motor error/end stop reached for motor Y. - The run is aborted.")
+    print("There was a motor error/end stop reached for motor Y. - The run is aborted.")
 
 motor_status = gb.get_motor_status(BOARD, STEPPER_X)
 print("Motor status X: ", motor_status)
 if steps_x != 0 and any(motor_status) != 0:
-	print("There was a motor error/end stop reached for motor X. - The run is aborted.")
+    print("There was a motor error/end stop reached for motor X. - The run is aborted.")
 
 status = gb.get_io_setup(BOARD)
 print("Status: ", status)
@@ -128,10 +165,10 @@ print("Reading error status ...")
 status = gb.read_error_status(BOARD)
 print("Status received ...")
 if status != 0:
-  print("Gertbot reports error(s):")    
-  print(gb.error_string(status))
+    print("Gertbot reports error(s):")    
+    print(gb.error_string(status))
 else:
-  print("all good!")  
+    print("all good!")  
 
 # Added this to avoid motor going into pwr state after end-stop activation.
 gb.set_mode(BOARD,STEPPER_X,MODE)
