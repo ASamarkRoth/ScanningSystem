@@ -13,6 +13,7 @@ parser.add_argument("-step", dest='steps', type=int, help="steps_x steps_y", nar
 parser.add_argument("-N", dest='new_xy', nargs=2, help="Start a new run from scratch with new origin.")
 parser.add_argument("-new", dest='restart', action="store_true", help="Start a new run from scratch with origin the same last saved.")
 parser.add_argument("-xy", dest='xy', nargs=2, help="Provide the new coordinates as: 'x y' (mm)")
+parser.add_argument("-set_limits", dest='limits', nargs=4, help="Set boundary limits of the current coordinate system: 'x_low x_high y_low y_high' (mm)")
 parser.add_argument("-file_xy", dest='file_xy', nargs=1, help="Provide the file name from which the position data is to be read from.")
 args = parser.parse_args()
 
@@ -47,6 +48,9 @@ elif args.file_xy:
 	print("Reading coordinates from file ... (SHOULD BE IMPLEMENTED?)")
 	sys.exit()
 
+
+if not steps_x or not steps_y: 
+    sys.exit()
 
 print("Stepping [x, y]: [", steps_x,", ",steps_y,"]")
 
