@@ -1,8 +1,8 @@
 #!/bin/bash
 
-F_INPUT="test"
+F_INPUT="surface"
 
-python3 move_collimator.py -swipe_file $F_INPUT 1 3 1 1 3 1
+python3 move_collimator.py -swipe_file $F_INPUT 0 20 10 0 20 10
 python3 move_collimator.py -file_xy $F_INPUT 
 
 echo temp.$F_INPUT.scan

@@ -63,10 +63,13 @@ def read_coords():
         if not content: 
             return None, None
         x, y = map(float, content[0].split())
-    with open("temp."+read_value("read_file")[0]+".scan", 'w') as f:
+        return x, y
+
+def performed_move():
+    with open("temp."+read_value("read_file")[0]+".scan", 'r+') as f:
+        content = f.readlines()
         f.seek(0, 0)
         f.writelines(content[1:])
-        return x, y
 
 def get_coords(): 
     with open(settings_file, 'r') as f:

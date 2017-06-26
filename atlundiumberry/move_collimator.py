@@ -18,11 +18,27 @@ parser.add_argument("-set_freq", dest='freq', nargs=1, help="Set freq as: 'new_f
 parser.add_argument("-set_defaults", dest='defs', action="store_true", help="Reset default settings.")
 parser.add_argument("-set_power_com", dest='tdk', action="store_true", help="Set up the power supply communication (tdk-lambda Gen 50-30). OBS: this activates automatic power ON/OFF over the operation.")
 parser.add_argument("-no_power_com", dest='no_tdk', action="store_true", help="Inactivate automatic power supply communication and power ON/OFF during operation.")
+parser.add_argument("-STOP", dest='stop', action="store_true", help="Emergency stop the scanning!")
+parser.add_argument("-clear_log", dest='log', action="store_true", help="Clear the stepper log-file.")
+parser.add_argument("-save_log", dest='save_log', nargs=1, help="Save the stepper log-file.")
+parser.add_argument("-ON", dest='on', action="store_true", help="Deactivate emergency stop.")
 parser.add_argument("-v", dest='view', action="store_true", help="View current settings.")
 args = parser.parse_args()
 
 steps_x = 0
 steps_y = 0
+
+orig_stdout = sys.stdout
+
+f_log = open("stepper.log", 'w')
+
+if args.on:
+    print("Deactivating emergency stop.")
+    sh.set_value("stop", '0')
+
+if int(sh.read_value("stop")[0]):
+    print("EMERGENCY STOP ACTIVATED!")
+    sys.exit(2)
 
 if len(sys.argv)==1:
     if int(sh.read_value("is_file")[0]):
@@ -37,7 +53,7 @@ if len(sys.argv)==1:
         sh.set_value("is_file", '0')
         sys.exit(1)
 
-print("args = ", args)
+sys.stdout = f_log
 
 if args.tdk:
     print("Setting up power supply communication ")
@@ -53,6 +69,13 @@ if args.view:
     print("\nCurrent settings are:")
     os.system("cat .scanning.xy")
     print("")
+
+if args.stop:
+    print("\n Emergency stop with current settings:")
+    os.system("cat .scanning.xy")
+    sh.set_value("stop", '1')
+    print("")
+    sys.exit(2)
 
 if args.limits:
     print("Setting limits to: ", args.limits)
@@ -77,7 +100,6 @@ if args.new_xy:
     sh.set_coords(0, 0);
     print("The new origin has been successfully added to \".scanning.xy\"")
     sys.exit()
-
 
 if args.file_xy:
     print("Setting file to read from:", args.file_xy)
@@ -155,7 +177,14 @@ print("Invoking move ...")
 gb.move_stepper(BOARD,STEPPER_Y,steps_y)
 gb.move_stepper(BOARD,STEPPER_X,steps_x)
 
-time.sleep(5)
+if steps_y > steps_x:
+    print("Sleeping: ", float(steps_y/FREQ), "s")
+    time.sleep(float(steps_y/FREQ))
+else:
+    print("Sleeping: ", float(steps_x/FREQ), "s")
+    time.sleep(float(steps_x/FREQ))
+if int(sh.read_value("is_file")[0]):
+    sh.performed_move()
 
 #Checking status after move for both motors and aborts if anything is wrong.
 #This is somewhat unclear still
@@ -192,6 +221,8 @@ gb.set_mode(BOARD,STEPPER_X,MODE)
 if int(sh.read_value("is_power_com")[0]):
     print("Deactivating power")
     sh.set_power("OUT 0")
+
+f_log.close()
 
 # on exit stop everything
 #gb.emergency_stop()
