@@ -9,8 +9,7 @@ import shutil
 
 parser = argparse.ArgumentParser("Specify how many steps that should be taken in as: 'steps_x steps_y'")
 parser.add_argument("-step", dest='steps', type=int, help="steps_x steps_y", nargs=2)
-parser.add_argument("-N", dest='new_xy', nargs=2, help="Start a new run from scratch with new origin.")
-parser.add_argument("-new", dest='restart', action="store_true", help="Start a new run from scratch with origin the same last saved.")
+parser.add_argument("-new_origin", dest='new_xy', action="store_true", help="Set current position as origin.")
 parser.add_argument("-xy", dest='xy', nargs=2, help="Provide the new coordinates as: 'x y' (mm)")
 parser.add_argument("-set_limits", dest='limits', nargs=4, help="Set boundary limits of the current coordinate system: 'x_low x_high y_low y_high' (mm)")
 parser.add_argument("-swipe_file", dest='swipe', nargs=7, help="Generate a file with coordinates to perform an (x0-x1, y0-y1) with step lengths (dx, dy) swipe scan. As: 'file_name x0 x1 dx y0 y1 dy'. Neglect file ending.")
@@ -74,30 +73,24 @@ if args.swipe:
     print("Generating swipe file:", args.swipe[0]+".scan")
     sh.generate_swipe_file(args.swipe)
 
+if args.new_xy: 
+    sh.set_coords(0, 0);
+    print("The new origin has been successfully added to \".scanning.xy\"")
+    sys.exit()
+
+
 if args.file_xy:
     print("Setting file to read from:", args.file_xy)
     sh.set_value("is_file", ['1'])
     sh.set_value("read_file", args.file_xy)
     shutil.copyfile(args.file_xy[0]+".scan", "temp."+args.file_xy[0]+".scan")
 
-if args.restart: 
-    print("Restarting the analysis with start coordinates as the last ones in \".positions.xy\"")	
-    x, y = sh.get_coords()
-    sh.deleteContent('move_data/.positions.xy')
-    sh.set_coords(x,y)
-    sys.exit()
-
-elif args.new_xy != None: 
-    sh.deleteContent('move_data/.positions.xy')
-    sh.set_coords(float(args.new_xy[0]), float(args.new_xy[1]))
-    print("The data has been reset and the new origin has been successfully added to \".positions.xy\"")
-    sys.exit()
-
-elif args.steps:
+if args.steps:
     steps_x = args.steps[0]
     steps_y = args.steps[1]
+    sh.set_new_position(steps_x, steps_y)
 
-elif args.xy:
+if args.xy:
     steps_x, steps_y = sh.pos_eval(float(args.xy[0]), float(args.xy[1]))
     print("Stepping [x, y]: [", steps_x,", ",steps_y,"]")
 
@@ -165,6 +158,7 @@ gb.move_stepper(BOARD,STEPPER_X,steps_x)
 time.sleep(5)
 
 #Checking status after move for both motors and aborts if anything is wrong.
+#This is somewhat unclear still
 motor_status = gb.get_motor_status(BOARD, STEPPER_Y)
 print("Motor status Y: ", motor_status) 
 if steps_y != 0 and any(motor_status) != 0:
@@ -178,10 +172,10 @@ if steps_x != 0 and any(motor_status) != 0:
 status = gb.get_io_setup(BOARD)
 print("Status: ", status)
 
-missed = gb.get_motor_missed(BOARD, STEPPER_Y)
-print("Missed Y: ", missed)
-missed = gb.get_motor_missed(BOARD, STEPPER_X)
-print("Missed X: ", missed)
+missed_y = gb.get_motor_missed(BOARD, STEPPER_Y)
+missed_x = gb.get_motor_missed(BOARD, STEPPER_X)
+print("Missed X,Y: ", missed_x, missed_y)
+sh.set_real_position(float(steps_x-missed_x[0]), float(steps_y-missed_y[0]))
 
 print("Reading error status ...")
 status = gb.read_error_status(BOARD)

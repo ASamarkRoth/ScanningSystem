@@ -14,12 +14,13 @@ import os
 
 settings_file = '.scanning.xy'
 
+step_length_y = (1.8/360)*2
+step_length_x = (1.8/360)*5
+
 def pos_eval(new_x, new_y):
     x, y = get_coords()
     limits = list(map(float, read_value("limits")))
     print("Current position is:", x, y)
-    step_length_y = (1.8/360)*2
-    step_length_x = (1.8/360)*5
     new_steps_y = round((new_y-y)/step_length_y)
     new_steps_x = round((new_x-x)/step_length_x)
     new_y = new_steps_y*step_length_y + y
@@ -29,10 +30,31 @@ def pos_eval(new_x, new_y):
     if float(new_x) < limits[0] or float(new_x) > limits[1] or float(new_y) < limits[2] or float(new_y) > limits[3]:
         print("ERROR: Tried to move out of set boundary. No stepping is executed and exiting ...")
         sys.exit(2);
-    print("New position is:", new_x, new_y)
+    print("New planned position is:", new_x, new_y)
     print("Invoking step:", new_steps_x, new_steps_y)
-    set_coords(new_x, new_y)
     return new_steps_x, new_steps_y
+
+def set_new_position(went_x, went_y):
+    if went_x == 0 and went_y == 0:
+        return
+    x_old, y_old = get_coords()
+    new_y = went_y*step_length_y + y_old
+    new_x = went_x*step_length_x + x_old
+    new_y = "{0:.3f}".format(round(new_y,3))
+    new_x = "{0:.3f}".format(round(new_x,3))
+    print("New position is to be:", new_x, new_y)
+
+def set_real_position(went_x, went_y):
+    x_old, y_old = get_coords()
+    new_y = went_y*step_length_y + y_old
+    new_x = went_x*step_length_x + x_old
+    if new_x != 0 and new_y != 0:
+        print("OBS: missed steps!")
+    new_y = "{0:.3f}".format(round(new_y,3))
+    new_x = "{0:.3f}".format(round(new_x,3))
+    print("New real position is: ", new_x, new_y )
+    set_coords(new_x, new_y)
+
 
 def read_coords():
     content = 0
@@ -87,6 +109,7 @@ def set_value(s, value):
                 rep = j
     with open(settings_file, 'r+') as f:
         content = f.readlines()
+        #print("Content = ", content)
         content[rep] = s +' '+ ' '.join(value)+'\n'
         f.seek(0, 0)
         f.writelines(content)
