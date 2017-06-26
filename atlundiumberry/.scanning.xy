@@ -1,8 +1,17 @@
-pos -19.875 20.000
+pos 2.000 2.000
 stop 0
 freq 50
 limits -10 60 -10 60
-is_file 1
+is_file 0
 read_file surface
 is_power_com 1
+
+
+
+
+
+
+
+
+
 
