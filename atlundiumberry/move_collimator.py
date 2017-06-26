@@ -19,7 +19,8 @@ parser.add_argument("-set_defaults", dest='defs', action="store_true", help="Res
 parser.add_argument("-set_power_com", dest='tdk', action="store_true", help="Set up the power supply communication (tdk-lambda Gen 50-30). OBS: this activates automatic power ON/OFF over the operation.")
 parser.add_argument("-no_power_com", dest='no_tdk', action="store_true", help="Inactivate automatic power supply communication and power ON/OFF during operation.")
 parser.add_argument("-STOP", dest='stop', action="store_true", help="Emergency stop the scanning!")
-parser.add_argument("-clear_log", dest='log', action="store_true", help="Clear the stepper log-file.")
+parser.add_argument("-clear_coords", dest='coords', action="store_true", help="Clear the coordinate (coords.log) file.")
+parser.add_argument("-clear_log", dest='clear_log', action="store_true", help="Clear the stepper log-file.")
 parser.add_argument("-save_log", dest='save_log', nargs=1, help="Save the stepper log-file.")
 parser.add_argument("-ON", dest='on', action="store_true", help="Deactivate emergency stop.")
 parser.add_argument("-v", dest='view', action="store_true", help="View current settings.")
@@ -40,6 +41,8 @@ if int(sh.read_value("stop")[0]):
     print("EMERGENCY STOP ACTIVATED!")
     sys.exit(2)
 
+sys.stdout = f_log
+
 if len(sys.argv)==1:
     if int(sh.read_value("is_file")[0]):
         x, y = sh.read_coords()
@@ -52,8 +55,6 @@ if len(sys.argv)==1:
         parser.print_help()
         sh.set_value("is_file", '0')
         sys.exit(1)
-
-sys.stdout = f_log
 
 if args.tdk:
     print("Setting up power supply communication ")
@@ -69,6 +70,14 @@ if args.view:
     print("\nCurrent settings are:")
     os.system("cat .scanning.xy")
     print("")
+
+if args.clear_log:
+    print("Clearing stepper log file: \"stepper.log\"")
+    os.system("cp /dev/null stepper.log")
+
+if args.coords:
+    print("Clearing coordinate log file: \"coords.log\"")
+    os.system("cp /dev/null coords.log")
 
 if args.stop:
     print("\n Emergency stop with current settings:")
@@ -223,6 +232,7 @@ if int(sh.read_value("is_power_com")[0]):
     sh.set_power("OUT 0")
 
 f_log.close()
+sys.stdout = orig_stdout
 
 # on exit stop everything
 #gb.emergency_stop()

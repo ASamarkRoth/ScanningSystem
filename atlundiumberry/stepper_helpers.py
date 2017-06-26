@@ -54,6 +54,8 @@ def set_real_position(went_x, went_y):
     new_x = "{0:.3f}".format(round(new_x,3))
     print("New real position is: ", new_x, new_y )
     set_coords(new_x, new_y)
+    with open("coords.log", 'w') as f_temp:
+        f_temp.write(new_x + " " + new_y)
 
 
 def read_coords():

@@ -1,19 +1,6 @@
-Stepping [x, y]: [ 0 ,  2000 ]
+Current position is: -19.875 20.0
+New planned position is: 10.000 20.000
+Invoking step: 1195 0
+Stepping [x, y]: [ 1195 ,  0 ]
 Set frequency is: 50.0
 Opening serial port ...
-Setting up channels for stepper motors ...
-Activating power
-Executing:  ./power_setup.sh cmd OUT 1
-Invoking move ...
-Sleeping:  40.0 s
-Motor status Y:  [0, 0]
-Motor status X:  [3, 0]
-Status:  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 4, 4, 4, 4, 0, 1, 0, 1]
-Missed X,Y:  [795, 0] [0, 0]
-OBS: missed steps!
-New real position is:  -19.875 20.000
-Reading error status ...
-Status received ...
-all good!
-Deactivating power
-Executing:  ./power_setup.sh cmd OUT 0
