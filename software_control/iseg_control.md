@@ -18,3 +18,6 @@ iseg can control software download - <http://iseg-hv.com/en/products/control#sof
 Ordered dsb9-usb connector, supposed to arrive Thursday 23/3!
 The invoice/order is available in the map orders.
 These items have arrived. However, a dsb9 connector extender is needed. Possibly also a usb-usb extender in order to put the laptop at a desired place. 
+
+#Peak CAN USB driver#
+This is essential in the installation process: <https://www.youtube.com/watch?v=zXT10xaJ0V8>
