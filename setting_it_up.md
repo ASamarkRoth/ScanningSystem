@@ -123,6 +123,7 @@ In the end this convention rules which stepper motor (#0 and #2 in the GUI) is c
 * The motors are referred to `STEPPER_X` and `STEPPER_Y` where the view of reference is: the wagons are as close as possible to the motor housing and one looks in the direction of the bottom linear unit. 
 This position can be referred to the motor origin. 
 Hence, `STEPPER_X = Top-motor (KK60)` and `STEPPER_Y = bottom-motor (KK50)`. 
+* I.e. STEPPER_X = MOTOR #2 and STEPPER_Y = MOTOR #0 (see `move_collimator.py`).
 This is especially used in the stepper software but also in the cableing of the ScanningComputer.
 
 ![Stepper motor connection](/home/anton/Pictures/DocumentationScanningSystem/20170512_161630.jpg)

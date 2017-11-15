@@ -177,8 +177,11 @@ gb.freq_stepper(BOARD,STEPPER_X,FREQ)
 # ENDSTOP_LOW = 1
 # ENDSTOP_HIGH = 2
 
-# Setting active-low endstop for direction B, OFF for dir A. 
-#gb.set_endstop(BOARD, STEPPER_Y, gb.ENDSTOP_OFF, gb.ENDSTOP_LOW)
+# Set active-low endstop as: 
+#def set_endstop (board,channel,stop_A,stop_B)
+
+gb.set_endstop(BOARD, STEPPER_Y, gb.ENDSTOP_LOW, gb.ENDSTOP_LOW)
+gb.set_endstop(BOARD, STEPPER_X, gb.ENDSTOP_OFF, gb.ENDSTOP_LOW)
 
 if int(sh.read_value("is_power_com")[0]):
     print("Activating power")

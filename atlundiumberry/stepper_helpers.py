@@ -12,6 +12,8 @@ import sys
 import numpy as np
 import os
 
+import yaml
+
 settings_file = '.scanning.xy'
 
 step_length_y = (1.8/360)*2
