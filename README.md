@@ -11,6 +11,10 @@ Other than that, the folder names should be rather explanatory.
 
 ## TO DO ##
 
+* Install hooks and configure a proper use. How?
+* Monitor laser range finder options and z-coordinate measure possibilities. 
+
+
 * Test the swipe-scan procedure. 
 * Configure Data AQuisition with the xy-scanning. I.e.
   * Do we get proper data?
