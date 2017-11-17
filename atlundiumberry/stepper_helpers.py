@@ -14,139 +14,111 @@ import os
 
 import yaml
 
-settings_file = '.scanning.xy'
+settings_file = '.test.yaml'
 
 step_length_y = (1.8/360)*2
 step_length_x = (1.8/360)*5
 
-def pos_eval(new_x, new_y):
-    x, y = get_coords()
-    limits = list(map(float, read_value("limits")))
-    print("Current position is:", x, y)
-    new_steps_y = round((new_y-y)/step_length_y)
-    new_steps_x = round((new_x-x)/step_length_x)
-    new_y = new_steps_y*step_length_y + y
-    new_x = new_steps_x*step_length_x + x
-    new_y = "{0:.3f}".format(round(new_y,3))
-    new_x = "{0:.3f}".format(round(new_x,3))
-    if float(new_x) < limits[0] or float(new_x) > limits[1] or float(new_y) < limits[2] or float(new_y) > limits[3]:
-        print("ERROR: Tried to move out of set boundary. No stepping is executed and exiting ...")
-        sys.exit(2);
-    print("New planned position is:", new_x, new_y)
-    print("Invoking step:", new_steps_x, new_steps_y)
-    return new_steps_x, new_steps_y
 
-def set_new_position(went_x, went_y):
-    if went_x == 0 and went_y == 0:
-        return
-    x_old, y_old = get_coords()
-    new_y = went_y*step_length_y + y_old
-    new_x = went_x*step_length_x + x_old
-    new_y = "{0:.3f}".format(round(new_y,3))
-    new_x = "{0:.3f}".format(round(new_x,3))
-    print("New position is to be:", new_x, new_y)
+class Scanner:
 
-def set_real_position(went_x, went_y):
-    x_old, y_old = get_coords()
-    new_y = went_y*step_length_y + y_old
-    new_x = went_x*step_length_x + x_old
-    new_y = "{0:.3f}".format(round(new_y,3))
-    new_x = "{0:.3f}".format(round(new_x,3))
-    print("New real position is: ", new_x, new_y )
-    set_coords(new_x, new_y)
-    with open("coords.log", 'a') as f_temp:
-        f_temp.write(new_x + " " + new_y+"\n")
+    def __init__(self, config_file):
+        self.config_file = config_file
 
-def read_coords():
-    with open("temp."+read_value("read_file")[0]+".scan", 'r') as f:
-        content = f.readlines()
-        if not content: 
-            return None, None
-        x, y = map(float, content[0].split())
-        return x, y
+    def ChangeSetting(self, setting, value):
+        stream = open(self.config_file, 'r+')
+        doc = yaml.load(stream)
+        if setting in doc:
+            doc[setting] = value
+        else:
+            print("Setting", setting, "does not exist in the configure file")
+            return False
+        stream.seek(0)
+        stream.truncate()
+        yaml.dump(doc, stream)
+        stream.close()
+        return True
 
-def performed_move():
-    with open("temp."+read_value("read_file")[0]+".scan", 'r') as f_in:
-        content = f_in.readlines()
-    with open("temp."+read_value("read_file")[0]+".scan", 'w') as f_out:
-        f_out.seek(0, 0)
-        f_out.writelines(content[1:])
+    def ReadSetting(self, setting):
+        stream = open(self.config_file, 'r+')
+        doc = yaml.load(stream)
+        if setting not in doc:
+            print("Setting", setting, "does not exist in the configure file")
+            return None
+        stream.close()
+        print("yaml=", doc)
+        return doc[setting]
 
-def get_coords(): 
-    with open(settings_file, 'r') as f:
-        content = f.readline()
-        if not content:
-            return None, None
-        s, x, y = content.split()
-        return float(x), float(y)
+    def PosEval(self, new_x, new_y):
+        x, y = self.ReadSetting("pos")
+        limits = self.ReadSetting("limits")
+        print("Current position is:", x, y)
+        new_steps_y = round((new_y-y)/step_length_y)
+        new_steps_x = round((new_x-x)/step_length_x)
+        new_y = new_steps_y*step_length_y + y
+        new_x = new_steps_x*step_length_x + x
+        new_y = "{0:.3f}".format(round(new_y,3))
+        new_x = "{0:.3f}".format(round(new_x,3))
+        if float(new_x) < limits[0] or float(new_x) > limits[1] or float(new_y) < limits[2] or float(new_y) > limits[3]:
+            print("ERROR: Tried to move out of set boundary. No stepping is executed and exiting ...")
+            sys.exit(2);
+        print("New planned position is:", new_x, new_y)
+        print("Invoking step:", new_steps_x, new_steps_y)
+        return new_steps_x, new_steps_y
 
-def set_coords(x, y): 
-    with open(settings_file, 'r+') as f:
-        line = "pos "+str(x)+" "+str(y)+"\n"
-        content = f.readlines()
-        content[0] = line
-        f.seek(0, 0)
-        f.writelines(content)
+    def SetNewPosition(self, went_x, went_y):
+        if went_x == 0 and went_y == 0:
+            return
+        x_old, y_old = self.ReadSetting("pos")
+        new_y = went_y*step_length_y + y_old
+        new_x = went_x*step_length_x + x_old
+        new_y = "{0:.3f}".format(round(new_y,3))
+        new_x = "{0:.3f}".format(round(new_x,3))
+        print("New position is to be:", new_x, new_y)
 
-def set_power(s):
-    print("Executing: ", "./power_setup.sh cmd "+s)
-    os.system("./power_set.sh cmd "+s)
-    os.system(s +" >> power.log")
+    def SetRealPosition(self, went_x, went_y):
+        x_old, y_old = ReadSetting("pos")
+        new_y = went_y*step_length_y + y_old
+        new_x = went_x*step_length_x + x_old
+        new_y = "{0:.3f}".format(round(new_y,3))
+        new_x = "{0:.3f}".format(round(new_x,3))
+        print("New real position is: ", new_x, new_y )
+        ChangeSetting("pos", [new_x, new_y])
+        with open("coords.log", 'a') as f_temp:
+            f_temp.write(new_x + " " + new_y+"\n")
 
+    def PerformedMove(self):
+        with open("temp."+read_value("read_file")[0]+".scan", 'r') as f_in:
+            content = f_in.readlines()
+        with open("temp."+read_value("read_file")[0]+".scan", 'w') as f_out:
+            f_out.seek(0, 0)
+            f_out.writelines(content[1:])
 
-def read_value(s):
-    with open(settings_file, 'r') as f:
-        for line in f.readlines():
-            l = line.split()
-            if not l:
-                break
-            if l[0] == s:
-                return l[1:]
-        print("Could not read value: ", s)
+    def SetPower(self, s):
+        print("Executing: ", "./power_setup.sh cmd "+s)
+        os.system("./power_set.sh cmd "+s)
+        os.system(s +" >> power.log")
 
-def set_value(s, value):
-    rep = -1
-    with open(settings_file, 'r') as f:
-        for j, line in enumerate(f.readlines()):
-            l = line.split()
-            if not l: 
-                break
-            #print("l", l)
-            if l[0] == s:
-                rep = j
-    with open(settings_file, 'r+') as f:
-        content = f.readlines()
-        #print("Content = ", content)
-        content[rep] = s +' '+ ' '.join(value)+'\n'
-        f.seek(0, 0)
-        f.writelines(content)
-    if rep < 0:
-        print("Could not read value: ", s)
+    def GenerateSwipeFile(self, s):
+        x = np.arange(float(s[1]), float(s[2]) + float(s[3]), float(s[3]))
+        y = np.arange(float(s[4]), float(s[5]) + float(s[6]), float(s[6]))
+        with open(s[0]+'.scan', 'w') as f:
+            for i in range(len(x)):
+                for j in range(len(y)):
+                    if i%2 == 1: 
+                        f.write(str(x[-j-1])+' '+str(y[i])+'\n')
+                    else:
+                        f.write(str(x[j])+' '+str(y[i])+'\n')
 
-def generate_swipe_file(s):
-    x = np.arange(float(s[1]), float(s[2]) + float(s[3]), float(s[3]))
-    y = np.arange(float(s[4]), float(s[5]) + float(s[6]), float(s[6]))
-    with open(s[0]+'.scan', 'w') as f:
-        for i in range(len(x)):
-            for j in range(len(y)):
-                if i%2 == 1: 
-                    f.write(str(x[-j-1])+' '+str(y[i])+'\n')
-                else:
-                    f.write(str(x[j])+' '+str(y[i])+'\n')
-
-
-
-def line_prepender(filename, line):
-    with open(filename, 'r+') as f:
-        content = f.read()
-        f.seek(0, 0)
-        f.write(line.rstrip('\r\n') + '\n' + content)
-
-def deleteContent(fName):
-    with open(fName, "w"):
-        pass
-
-def insertContent(fName, line):
-    with open(fName, "w") as f:
-        f.write(line)
+if __name__ == '__main__':
+    pos = [1, 1]
+    scan = Scanner(settings_file)
+    scan.ChangeSetting("read_file222", "surface")
+    readf = scan.ReadSetting("stop")
+    print("Readf=",readf)
+    stream = open(settings_file, 'r+')
+    stream.seek(0)
+    print("File content:\n",stream.read())
+    stream.close()
+    #print(yaml.dump(doc))
 

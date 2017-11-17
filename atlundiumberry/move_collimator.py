@@ -29,42 +29,46 @@ args = parser.parse_args()
 steps_x = 0
 steps_y = 0
 
+config_file = '.test.yaml'
+Scan = sh.Scanner(config_file)
+
 orig_stdout = sys.stdout
 
 f_log = open("stepper.log", 'w')
 
 if args.on:
     print("Deactivating emergency stop.")
-    sh.set_value("stop", ['0'])
+    Scan.ChangeSetting("stop", 0)
 
-if int(sh.read_value("stop")[0]):
+#if int(sh.read_value("stop")[0]):
+if Scan.ReadSetting("stop"):
     print("EMERGENCY STOP ACTIVATED!")
     sys.exit(2)
 
 #sys.stdout = f_log
 
 if len(sys.argv)==1:
-    if int(sh.read_value("is_file")[0]):
-        x, y = sh.read_coords()
+    if Scan.ReadSetting("is_file"):
+        x, y = Scan.ReadSetting("pos")
         if x == None and y == None:
-            sh.set_value("is_file", ['0'])
-            os.remove("temp."+sh.read_value("read_file")[0]+".scan")
+            Scan.ChangeSetting("is_file", 0)
+            os.remove("temp."+Scan.ReadSetting("read_file")+".scan")
             sys.exit()
-        steps_x, steps_y = sh.pos_eval(x, y)
+        steps_x, steps_y = Scan.PosEval(x, y)
     else:
         parser.print_help()
-        sh.set_value("is_file", '0')
+        Scan.ChangeSetting("is_file", 0)
         sys.exit(1)
 
 if args.tdk:
     print("Setting up power supply communication ")
     os.system("echo 'Setting up tdk-lambda'")
     os.system("./power_set.sh setup")
-    sh.set_value("is_power_com", '1')
+    Scan.ChangeSetting("is_power_com", 1)
 
 if args.no_tdk:
     print("Inactivating power supply communication ")
-    sh.set_value("is_power_com", '0')
+    Scan.ChangeSetting("is_power_com", 0)
 
 if args.view:
     print("\nCurrent settings are:")
@@ -82,51 +86,51 @@ if args.coords:
 if args.stop:
     print("\n Emergency stop with current settings:")
     os.system("cat .scanning.xy")
-    sh.set_value("stop", ['1'])
+    Scan.ChangeSetting("stop", 1)
     print("")
     sys.exit(2)
 
 if args.limits:
     print("Setting limits to: ", args.limits)
-    sh.set_value("limits", args.limits)
+    Scan.ChangeSetting("limits", args.limits)
 
 if args.freq:
     print("Setting frequency to: ", args.freq)
-    sh.set_value("freq", args.freq)
+    Scan.ChangeSetting("freq", args.freq)
 
 if args.defs:
     print("Setting defaults")
-    sh.set_value("freq", ['50'])
-    sh.set_value("limits", ['-10','60','-10','60'])
-    sh.set_value("is_file", ['0'])
-    sh.set_value("is_power_com", ['0'])
+    Scan.ChangeSetting("freq", 50)
+    Scan.ChangeSetting("limits", [-10,60,-10,60])
+    Scan.ChangeSetting("is_file", 0)
+    Scan.ChangeSetting("is_power_com", 0)
 
 if args.swipe:
     print("Generating swipe file:", args.swipe[0]+".scan")
-    sh.generate_swipe_file(args.swipe)
+    Scan.GenerateSwipeFile(args.swipe)
 
 if args.new_xy: 
-    sh.set_coords(0, 0);
-    print("The new origin has been successfully added to \".scanning.xy\"")
+    Scan.ChangeSetting("pos", [0, 0]);
+    print("The new origin has been successfully added to"+config_file)
     sys.exit()
 
 if args.file_xy:
     print("Setting file to read from:", args.file_xy)
-    sh.set_value("is_file", ['1'])
-    sh.set_value("read_file", args.file_xy)
+    Scan.ChangeSetting("is_file", 1)
+    Scan.ChangeSetting("read_file", args.file_xy)
     shutil.copyfile(args.file_xy[0]+".scan", "temp."+args.file_xy[0]+".scan")
 
 if args.no_file:
     print("Deactivating read file")
-    sh.set_value("is_file", ['0'])
+    Scan.ChangeSetting("is_file", 0)
 
 if args.steps:
     steps_x = args.steps[0]
     steps_y = args.steps[1]
-    sh.set_new_position(steps_x, steps_y)
+    Scan.SetNewPosition(steps_x, steps_y)
 
 if args.xy:
-    steps_x, steps_y = sh.pos_eval(float(args.xy[0]), float(args.xy[1]))
+    steps_x, steps_y = Scan.PosEval(float(args.xy[0]), float(args.xy[1]))
     print("Stepping [x, y]: [", steps_x,", ",steps_y,"]")
 
 if steps_x == 0 and steps_y == 0: 
@@ -183,9 +187,9 @@ gb.freq_stepper(BOARD,STEPPER_X,FREQ)
 gb.set_endstop(BOARD, STEPPER_Y, gb.ENDSTOP_LOW, gb.ENDSTOP_LOW)
 gb.set_endstop(BOARD, STEPPER_X, gb.ENDSTOP_OFF, gb.ENDSTOP_LOW)
 
-if int(sh.read_value("is_power_com")[0]):
+if Scan.ReadSetting("is_power_com"):
     print("Activating power")
-    sh.set_power("OUT 1")
+    Scan.SetPower("OUT 1")
     time.sleep(2) #this is to ensure power is on
 
 # DO THE ACTUAL MOVE
@@ -200,8 +204,8 @@ else:
     print("Sleeping: ", abs(float(steps_x/FREQ)), "s")
     time.sleep(abs(float(steps_x/FREQ)))
 
-if int(sh.read_value("is_file")[0]):
-    sh.performed_move()
+if Scan.ReadSetting("is_file"):
+    Scan.PerformedMove()
 
 #Checking status after move for both motors and aborts if anything is wrong.
 #This is somewhat unclear still
@@ -221,7 +225,7 @@ print("Status: ", status)
 missed_y = gb.get_motor_missed(BOARD, STEPPER_Y)
 missed_x = gb.get_motor_missed(BOARD, STEPPER_X)
 print("Missed X,Y: ", missed_x, missed_y)
-sh.set_real_position(float(steps_x-missed_x[0]), float(steps_y-missed_y[0]))
+Scan.SetRealPosition(float(steps_x-missed_x[0]), float(steps_y-missed_y[0]))
 
 print("Reading error status ...")
 status = gb.read_error_status(BOARD)
@@ -237,7 +241,7 @@ gb.set_mode(BOARD,STEPPER_X,MODE)
 
 if int(sh.read_value("is_power_com")[0]):
     print("Deactivating power")
-    sh.set_power("OUT 0")
+    Scan.SetPower("OUT 0")
 
 f_log.close()
 sys.stdout = orig_stdout
