@@ -14,6 +14,7 @@ parser.add_argument("-xy", dest='xy', nargs=2, help="Provide the new coordinates
 parser.add_argument("-set_limits", dest='limits', nargs=4, help="Set boundary limits of the current coordinate system: 'x_low x_high y_low y_high' (mm)")
 parser.add_argument("-swipe_file", dest='swipe', nargs=7, help="Generate a file with coordinates to perform an (x0-x1, y0-y1) with step lengths (dx, dy) swipe scan. As: 'file_name x0 x1 dx y0 y1 dy'. Neglect file ending.")
 parser.add_argument("-file_xy", dest='file_xy', nargs=1, help="Provide the file name from which the position data is to be read from. If file is set then every time the program is executed the collimator will move to the positions indicated in the file. A temporary file temp.'file name'.scan is deleted if the scan is completed.")
+parser.add_argument("-no_file", dest='no_file', action="store_true", help="Deactivate read from file.")
 parser.add_argument("-set_freq", dest='freq', nargs=1, help="Set freq as: 'new_freq' (Hz)")
 parser.add_argument("-set_defaults", dest='defs', action="store_true", help="Reset default settings.")
 parser.add_argument("-set_power_com", dest='tdk', action="store_true", help="Set up the power supply communication (tdk-lambda Gen 50-30). OBS: this activates automatic power ON/OFF over the operation.")
@@ -21,7 +22,6 @@ parser.add_argument("-no_power_com", dest='no_tdk', action="store_true", help="I
 parser.add_argument("-STOP", dest='stop', action="store_true", help="Emergency stop the scanning!")
 parser.add_argument("-clear_coords", dest='coords', action="store_true", help="Clear the coordinate (coords.log) file.")
 parser.add_argument("-clear_log", dest='clear_log', action="store_true", help="Clear the stepper log-file.")
-parser.add_argument("-save_log", dest='save_log', nargs=1, help="Save the stepper log-file.")
 parser.add_argument("-ON", dest='on', action="store_true", help="Deactivate emergency stop.")
 parser.add_argument("-v", dest='view', action="store_true", help="View current settings.")
 args = parser.parse_args()
@@ -35,19 +35,19 @@ f_log = open("stepper.log", 'w')
 
 if args.on:
     print("Deactivating emergency stop.")
-    sh.set_value("stop", '0')
+    sh.set_value("stop", ['0'])
 
 if int(sh.read_value("stop")[0]):
     print("EMERGENCY STOP ACTIVATED!")
     sys.exit(2)
 
-sys.stdout = f_log
+#sys.stdout = f_log
 
 if len(sys.argv)==1:
     if int(sh.read_value("is_file")[0]):
         x, y = sh.read_coords()
         if x == None and y == None:
-            sh.set_value("is_file", '0')
+            sh.set_value("is_file", ['0'])
             os.remove("temp."+sh.read_value("read_file")[0]+".scan")
             sys.exit()
         steps_x, steps_y = sh.pos_eval(x, y)
@@ -82,7 +82,7 @@ if args.coords:
 if args.stop:
     print("\n Emergency stop with current settings:")
     os.system("cat .scanning.xy")
-    sh.set_value("stop", '1')
+    sh.set_value("stop", ['1'])
     print("")
     sys.exit(2)
 
@@ -115,6 +115,10 @@ if args.file_xy:
     sh.set_value("is_file", ['1'])
     sh.set_value("read_file", args.file_xy)
     shutil.copyfile(args.file_xy[0]+".scan", "temp."+args.file_xy[0]+".scan")
+
+if args.no_file:
+    print("Deactivating read file")
+    sh.set_value("is_file", ['0'])
 
 if args.steps:
     steps_x = args.steps[0]
@@ -173,8 +177,11 @@ gb.freq_stepper(BOARD,STEPPER_X,FREQ)
 # ENDSTOP_LOW = 1
 # ENDSTOP_HIGH = 2
 
-# Setting active-low endstop for direction B, OFF for dir A. 
-#gb.set_endstop(BOARD, STEPPER_Y, gb.ENDSTOP_OFF, gb.ENDSTOP_LOW)
+# Set active-low endstop as: 
+#def set_endstop (board,channel,stop_A,stop_B)
+
+gb.set_endstop(BOARD, STEPPER_Y, gb.ENDSTOP_LOW, gb.ENDSTOP_LOW)
+gb.set_endstop(BOARD, STEPPER_X, gb.ENDSTOP_OFF, gb.ENDSTOP_LOW)
 
 if int(sh.read_value("is_power_com")[0]):
     print("Activating power")
@@ -186,12 +193,13 @@ print("Invoking move ...")
 gb.move_stepper(BOARD,STEPPER_Y,steps_y)
 gb.move_stepper(BOARD,STEPPER_X,steps_x)
 
-if steps_y > steps_x:
-    print("Sleeping: ", float(steps_y/FREQ), "s")
-    time.sleep(float(steps_y/FREQ))
+if abs(steps_y) > abs(steps_x):
+    print("Sleeping: ", abs(float(steps_y/FREQ)), "s")
+    time.sleep(abs(float(steps_y/FREQ)))
 else:
-    print("Sleeping: ", float(steps_x/FREQ), "s")
-    time.sleep(float(steps_x/FREQ))
+    print("Sleeping: ", abs(float(steps_x/FREQ)), "s")
+    time.sleep(abs(float(steps_x/FREQ)))
+
 if int(sh.read_value("is_file")[0]):
     sh.performed_move()
 

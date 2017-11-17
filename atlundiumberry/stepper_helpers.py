@@ -12,6 +12,8 @@ import sys
 import numpy as np
 import os
 
+import yaml
+
 settings_file = '.scanning.xy'
 
 step_length_y = (1.8/360)*2
@@ -48,18 +50,14 @@ def set_real_position(went_x, went_y):
     x_old, y_old = get_coords()
     new_y = went_y*step_length_y + y_old
     new_x = went_x*step_length_x + x_old
-    if new_x != 0 and new_y != 0:
-        print("OBS: missed steps!")
     new_y = "{0:.3f}".format(round(new_y,3))
     new_x = "{0:.3f}".format(round(new_x,3))
     print("New real position is: ", new_x, new_y )
     set_coords(new_x, new_y)
-    with open("coords.log", 'w') as f_temp:
-        f_temp.write(new_x + " " + new_y)
-
+    with open("coords.log", 'a') as f_temp:
+        f_temp.write(new_x + " " + new_y+"\n")
 
 def read_coords():
-    content = 0
     with open("temp."+read_value("read_file")[0]+".scan", 'r') as f:
         content = f.readlines()
         if not content: 
@@ -68,15 +66,19 @@ def read_coords():
         return x, y
 
 def performed_move():
-    with open("temp."+read_value("read_file")[0]+".scan", 'r+') as f:
-        content = f.readlines()
-        f.seek(0, 0)
-        f.writelines(content[1:])
+    with open("temp."+read_value("read_file")[0]+".scan", 'r') as f_in:
+        content = f_in.readlines()
+    with open("temp."+read_value("read_file")[0]+".scan", 'w') as f_out:
+        f_out.seek(0, 0)
+        f_out.writelines(content[1:])
 
 def get_coords(): 
     with open(settings_file, 'r') as f:
-        s, x, y = f.readline().split()
-    return float(x), float(y)
+        content = f.readline()
+        if not content:
+            return None, None
+        s, x, y = content.split()
+        return float(x), float(y)
 
 def set_coords(x, y): 
     with open(settings_file, 'r+') as f:
