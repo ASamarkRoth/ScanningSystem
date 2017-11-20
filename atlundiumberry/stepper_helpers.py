@@ -16,14 +16,14 @@ import yaml
 
 settings_file = '.test.yaml'
 
-step_length_y = (1.8/360)*2
-step_length_x = (1.8/360)*5
-
 
 class Scanner:
 
     def __init__(self, config_file):
         self.config_file = config_file
+        self.step_length_y = (1.8/360)*2
+        self.step_length_x = (1.8/360)*5
+
 
     def ChangeSetting(self, setting, value):
         stream = open(self.config_file, 'r+')
@@ -53,10 +53,10 @@ class Scanner:
         x, y = self.ReadSetting("pos")
         limits = self.ReadSetting("limits")
         print("Current position is:", x, y)
-        new_steps_y = round((new_y-y)/step_length_y)
-        new_steps_x = round((new_x-x)/step_length_x)
-        new_y = new_steps_y*step_length_y + y
-        new_x = new_steps_x*step_length_x + x
+        new_steps_y = round((new_y-y)/self.step_length_y)
+        new_steps_x = round((new_x-x)/self.step_length_x)
+        new_y = new_steps_y*self.step_length_y + y
+        new_x = new_steps_x*self.step_length_x + x
         new_y = "{0:.3f}".format(round(new_y,3))
         new_x = "{0:.3f}".format(round(new_x,3))
         if float(new_x) < limits[0] or float(new_x) > limits[1] or float(new_y) < limits[2] or float(new_y) > limits[3]:
@@ -70,16 +70,16 @@ class Scanner:
         if went_x == 0 and went_y == 0:
             return
         x_old, y_old = self.ReadSetting("pos")
-        new_y = went_y*step_length_y + y_old
-        new_x = went_x*step_length_x + x_old
+        new_y = went_y*self.step_length_y + y_old
+        new_x = went_x*self.step_length_x + x_old
         new_y = "{0:.3f}".format(round(new_y,3))
         new_x = "{0:.3f}".format(round(new_x,3))
         print("New position is to be:", new_x, new_y)
 
     def SetRealPosition(self, went_x, went_y):
         x_old, y_old = ReadSetting("pos")
-        new_y = went_y*step_length_y + y_old
-        new_x = went_x*step_length_x + x_old
+        new_y = went_y*self.step_length_y + y_old
+        new_x = went_x*self.step_length_x + x_old
         new_y = "{0:.3f}".format(round(new_y,3))
         new_x = "{0:.3f}".format(round(new_x,3))
         print("New real position is: ", new_x, new_y )

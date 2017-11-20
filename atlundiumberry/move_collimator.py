@@ -23,6 +23,7 @@ parser.add_argument("-STOP", dest='stop', action="store_true", help="Emergency s
 parser.add_argument("-clear_coords", dest='coords', action="store_true", help="Clear the coordinate (coords.log) file.")
 parser.add_argument("-clear_log", dest='clear_log', action="store_true", help="Clear the stepper log-file.")
 parser.add_argument("-ON", dest='on', action="store_true", help="Deactivate emergency stop.")
+parser.add_argument("-ResetToOrigin", dest='resetO', action="store_true", help="Reset coordinates to origin, i.e. where sensors at (x0, y0) activate.")
 parser.add_argument("-v", dest='view', action="store_true", help="View current settings.")
 args = parser.parse_args()
 
