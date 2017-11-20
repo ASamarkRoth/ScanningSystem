@@ -91,6 +91,10 @@ if args.stop:
     print("")
     sys.exit(2)
 
+if args.reset0:
+    steps_x, steps_y = Scan.PosEval(-1, -1)
+    print("Reseting to position (0, 0)", "Stepping [x, y]: [", steps_x,", ",steps_y,"]")
+
 if args.limits:
     print("Setting limits to: ", args.limits)
     Scan.ChangeSetting("limits", args.limits)
@@ -227,6 +231,10 @@ missed_y = gb.get_motor_missed(BOARD, STEPPER_Y)
 missed_x = gb.get_motor_missed(BOARD, STEPPER_X)
 print("Missed X,Y: ", missed_x, missed_y)
 Scan.SetRealPosition(float(steps_x-missed_x[0]), float(steps_y-missed_y[0]))
+
+if args.reset0:
+    print("Resetting to (0,0)")
+    Scan.ChangeSetting("pos", [0, 0])
 
 print("Reading error status ...")
 status = gb.read_error_status(BOARD)
