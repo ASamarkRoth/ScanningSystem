@@ -222,6 +222,6 @@ The program enables:
 - -xy XY XY          Provide the new coordinates as: 'x y' (mm)
 - -file_xy FILE_XY   Provide the file name from which the position data is to
                      be read from.
-
-
-
+## Ramping of Crystal LTH Lab ##
+Voltage negative: -2500
+Ramp speed in ISEG-control: 0.1%/s
