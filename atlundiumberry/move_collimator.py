@@ -11,7 +11,6 @@ parser = argparse.ArgumentParser("Specify how many steps that should be taken in
 parser.add_argument("-step", dest='steps', type=int, help="steps_x steps_y", nargs=2)
 parser.add_argument("-new_origin", dest='new_xy', action="store_true", help="Set current position as origin.")
 parser.add_argument("-xy", dest='xy', nargs=2, help="Provide the new coordinates as: 'x y' (mm)")
-parser.add_argument("-set_limits", dest='limits', nargs=4, help="Set boundary limits of the current coordinate system: 'x_low x_high y_low y_high' (mm)")
 parser.add_argument("-swipe_file", dest='swipe', nargs=7, help="Generate a file with coordinates to perform an (x0-x1, y0-y1) with step lengths (dx, dy) swipe scan. As: 'file_name x0 x1 dx y0 y1 dy'. Neglect file ending.")
 parser.add_argument("-file_xy", dest='file_xy', nargs=1, help="Provide the file name from which the position data is to be read from. If file is set then every time the program is executed the collimator will move to the positions indicated in the file. A temporary file temp.'file name'.scan is deleted if the scan is completed.")
 parser.add_argument("-no_file", dest='no_file', action="store_true", help="Deactivate read from file.")
@@ -27,10 +26,12 @@ parser.add_argument("-ResetToOrigin", dest='resetO', action="store_true", help="
 parser.add_argument("-v", dest='view', action="store_true", help="View current settings.")
 args = parser.parse_args()
 
+print(args)
+
 steps_x = 0
 steps_y = 0
 
-config_file = '.test.yaml'
+config_file = '.scan.yaml'
 Scan = sh.Scanner(config_file)
 
 orig_stdout = sys.stdout
@@ -41,7 +42,6 @@ if args.on:
     print("Deactivating emergency stop.")
     Scan.ChangeSetting("stop", 0)
 
-#if int(sh.read_value("stop")[0]):
 if Scan.ReadSetting("stop"):
     print("EMERGENCY STOP ACTIVATED!")
     sys.exit(2)
@@ -49,13 +49,16 @@ if Scan.ReadSetting("stop"):
 #sys.stdout = f_log
 
 if len(sys.argv)==1:
+    print("is_file=", Scan.ReadSetting("is_file"))
     if Scan.ReadSetting("is_file"):
-        x, y = Scan.ReadSetting("pos")
+        x, y = Scan.ReadCoordsFile()
         if x == None and y == None:
             Scan.ChangeSetting("is_file", 0)
             os.remove("temp."+Scan.ReadSetting("read_file")+".scan")
             sys.exit()
         steps_x, steps_y = Scan.PosEval(x, y)
+        if steps_x == 0 and steps_y == 0:
+            Scan.PerformedMove()
     else:
         parser.print_help()
         Scan.ChangeSetting("is_file", 0)
@@ -63,8 +66,8 @@ if len(sys.argv)==1:
 
 if args.tdk:
     print("Setting up power supply communication ")
-    os.system("echo 'Setting up tdk-lambda'")
-    os.system("./power_set.sh setup")
+    #os.system("echo 'Setting up tdk-lambda'")
+    os.system("./power_set setup")
     Scan.ChangeSetting("is_power_com", 1)
 
 if args.no_tdk:
@@ -73,7 +76,7 @@ if args.no_tdk:
 
 if args.view:
     print("\nCurrent settings are:")
-    os.system("cat .scanning.xy")
+    os.system("cat " + config_file)
     print("")
 
 if args.clear_log:
@@ -86,18 +89,14 @@ if args.coords:
 
 if args.stop:
     print("\n Emergency stop with current settings:")
-    os.system("cat .scanning.xy")
+    os.system("cat " + config_file)
     Scan.ChangeSetting("stop", 1)
     print("")
     sys.exit(2)
 
-if args.reset0:
+if args.resetO:
     steps_x, steps_y = Scan.PosEval(-1, -1)
-    print("Reseting to position (0, 0)", "Stepping [x, y]: [", steps_x,", ",steps_y,"]")
-
-if args.limits:
-    print("Setting limits to: ", args.limits)
-    Scan.ChangeSetting("limits", args.limits)
+    print("Resetting to position (0, 0)", "Stepping [x, y]: [", steps_x,", ",steps_y,"]")
 
 if args.freq:
     print("Setting frequency to: ", args.freq)
@@ -106,7 +105,6 @@ if args.freq:
 if args.defs:
     print("Setting defaults")
     Scan.ChangeSetting("freq", 50)
-    Scan.ChangeSetting("limits", [-10,60,-10,60])
     Scan.ChangeSetting("is_file", 0)
     Scan.ChangeSetting("is_power_com", 0)
 
@@ -122,7 +120,7 @@ if args.new_xy:
 if args.file_xy:
     print("Setting file to read from:", args.file_xy)
     Scan.ChangeSetting("is_file", 1)
-    Scan.ChangeSetting("read_file", args.file_xy)
+    Scan.ChangeSetting("read_file", args.file_xy[0])
     shutil.copyfile(args.file_xy[0]+".scan", "temp."+args.file_xy[0]+".scan")
 
 if args.no_file:
@@ -132,17 +130,17 @@ if args.no_file:
 if args.steps:
     steps_x = args.steps[0]
     steps_y = args.steps[1]
-    Scan.SetNewPosition(steps_x, steps_y)
+    Scan.SetNewPosition(float(steps_x), float(steps_y))
 
 if args.xy:
     steps_x, steps_y = Scan.PosEval(float(args.xy[0]), float(args.xy[1]))
-    print("Stepping [x, y]: [", steps_x,", ",steps_y,"]")
+    #print("Stepping [x, y]: [", steps_x,", ",steps_y,"]")
 
 if steps_x == 0 and steps_y == 0: 
     print("Exiting since no steps set")
     sys.exit()
 
-print("Stepping [x, y]: [", steps_x,", ",steps_y,"]")
+#print("Stepping [x, y]: [", steps_x,", ",steps_y,"]")
 
 #pos_eval(0,0)
 
@@ -164,7 +162,7 @@ MODE = gb.MODE_STEPG_OFF          # stepper control, gray code
 #         9=step pulse off 
 #        24=step gray powered
 #        25=step pulse powered
-FREQ = float(sh.read_value("freq")[0])        # frequency
+FREQ = Scan.ReadSetting("freq")        # frequency
 
 print("Set frequency is:", FREQ)
 
@@ -230,10 +228,17 @@ print("Status: ", status)
 missed_y = gb.get_motor_missed(BOARD, STEPPER_Y)
 missed_x = gb.get_motor_missed(BOARD, STEPPER_X)
 print("Missed X,Y: ", missed_x, missed_y)
-Scan.SetRealPosition(float(steps_x-missed_x[0]), float(steps_y-missed_y[0]))
 
-if args.reset0:
-    print("Resetting to (0,0)")
+x, y = Scan.ReadSetting("pos")
+m_x, m_y = float(missed_x[0]), float(missed_y[0])
+if steps_x < 0:
+    m_x = -float(missed_x[0])
+if steps_y < 0:
+    m_y = -float(missed_y[0])
+Scan.SetRealPosition(steps_x-m_x, steps_y-m_y)
+
+if args.resetO:
+    print("RESETTING to (0,0)")
     Scan.ChangeSetting("pos", [0, 0])
 
 print("Reading error status ...")
@@ -248,7 +253,7 @@ else:
 # Added this to avoid motor going into pwr state after end-stop activation.
 gb.set_mode(BOARD,STEPPER_X,MODE)
 
-if int(sh.read_value("is_power_com")[0]):
+if Scan.ReadSetting("is_power_com"):
     print("Deactivating power")
     Scan.SetPower("OUT 0")
 

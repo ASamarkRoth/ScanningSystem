@@ -14,9 +14,6 @@ import os
 
 import yaml
 
-settings_file = '.test.yaml'
-
-
 class Scanner:
 
     def __init__(self, config_file):
@@ -46,22 +43,27 @@ class Scanner:
             print("Setting", setting, "does not exist in the configure file")
             return None
         stream.close()
-        print("yaml=", doc)
+        #print("yaml=", doc)
         return doc[setting]
+
+    def ReadCoordsFile(self):
+        with open("temp."+self.ReadSetting("read_file")+".scan", 'r') as f:
+            content = f.readlines()
+            if len(content) > 0:
+                return map(float, (content[0].rsplit()))
+            else:
+                return None, None
+            
 
     def PosEval(self, new_x, new_y):
         x, y = self.ReadSetting("pos")
-        limits = self.ReadSetting("limits")
         print("Current position is:", x, y)
-        new_steps_y = round((new_y-y)/self.step_length_y)
-        new_steps_x = round((new_x-x)/self.step_length_x)
-        new_y = new_steps_y*self.step_length_y + y
-        new_x = new_steps_x*self.step_length_x + x
+        new_steps_y = round((new_y-float(y))/self.step_length_y)
+        new_steps_x = round((new_x-float(x))/self.step_length_x)
+        new_y = new_steps_y*self.step_length_y + float(y)
+        new_x = new_steps_x*self.step_length_x + float(x)
         new_y = "{0:.3f}".format(round(new_y,3))
         new_x = "{0:.3f}".format(round(new_x,3))
-        if float(new_x) < limits[0] or float(new_x) > limits[1] or float(new_y) < limits[2] or float(new_y) > limits[3]:
-            print("ERROR: Tried to move out of set boundary. No stepping is executed and exiting ...")
-            sys.exit(2);
         print("New planned position is:", new_x, new_y)
         print("Invoking step:", new_steps_x, new_steps_y)
         return new_steps_x, new_steps_y
@@ -70,33 +72,34 @@ class Scanner:
         if went_x == 0 and went_y == 0:
             return
         x_old, y_old = self.ReadSetting("pos")
-        new_y = went_y*self.step_length_y + y_old
-        new_x = went_x*self.step_length_x + x_old
+        new_y = went_y*self.step_length_y + float(y_old)
+        new_x = went_x*self.step_length_x + float(x_old)
         new_y = "{0:.3f}".format(round(new_y,3))
         new_x = "{0:.3f}".format(round(new_x,3))
         print("New position is to be:", new_x, new_y)
 
     def SetRealPosition(self, went_x, went_y):
-        x_old, y_old = ReadSetting("pos")
-        new_y = went_y*self.step_length_y + y_old
-        new_x = went_x*self.step_length_x + x_old
+        x_old, y_old = self.ReadSetting("pos")
+        new_y = went_y*self.step_length_y + float(y_old)
+        new_x = went_x*self.step_length_x + float(x_old)
         new_y = "{0:.3f}".format(round(new_y,3))
         new_x = "{0:.3f}".format(round(new_x,3))
         print("New real position is: ", new_x, new_y )
-        ChangeSetting("pos", [new_x, new_y])
+        self.ChangeSetting("pos", [new_x, new_y])
         with open("coords.log", 'a') as f_temp:
             f_temp.write(new_x + " " + new_y+"\n")
 
     def PerformedMove(self):
-        with open("temp."+read_value("read_file")[0]+".scan", 'r') as f_in:
+        print(self.ReadSetting("read_file"))
+        with open("temp."+self.ReadSetting("read_file")+".scan", 'r') as f_in:
             content = f_in.readlines()
-        with open("temp."+read_value("read_file")[0]+".scan", 'w') as f_out:
+        with open("temp."+self.ReadSetting("read_file")+".scan", 'w') as f_out:
             f_out.seek(0, 0)
             f_out.writelines(content[1:])
 
     def SetPower(self, s):
-        print("Executing: ", "./power_setup.sh cmd "+s)
-        os.system("./power_set.sh cmd "+s)
+        print("Executing: ", "./power_set cmd "+s)
+        os.system("./power_set cmd "+s)
         os.system(s +" >> power.log")
 
     def GenerateSwipeFile(self, s):
